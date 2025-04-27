@@ -1,0 +1,378 @@
+---
+import Layout from "./Layout.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, updatedDate, heroImage, tags } =
+  Astro.props;
+
+const formattedPubDate = pubDate.toLocaleDateString("en-us", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString("en-us", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+
+<Layout title={title} description={description} image={heroImage}>
+  <article class="blog-post container">
+    <div class="post-header">
+      {
+        heroImage && (
+          <img class="hero-image fade-in" src={heroImage} alt={title} />
+        )
+      }
+      <h1 class="title">{title}</h1>
+      <div class="metadata">
+        <time datetime={pubDate.toISOString()}>{formattedPubDate}</time>
+        {
+          updatedDate && (
+            <div class="updated-date">
+              Last updated on{" "}
+              <time datetime={updatedDate.toISOString()}>
+                {formattedUpdatedDate}
+              </time>
+            </div>
+          )
+        }
+      </div>
+      {
+        tags && tags.length > 0 && (
+          <div class="tags">
+            {tags.map((tag) => (
+              <a href={`/tags/${tag}`} class="tag">
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </div>
+    <div class="prose">
+      <slot />
+    </div>
+
+    <section class="sponsor-section">
+      <div class="sponsor-container">
+        <div class="sponsor-icon">
+          <img
+            src="https://i.postimg.cc/m1Wbq4XQ/sponsor.png"
+            alt="Ícone de patrocinador"
+          />
+        </div>
+        <div class="sponsor-content">
+          <p>
+            Este projeto é mantido com o apoio da comunidade. Se você gostou do
+            conteúdo e quer ajudar a continuar a iniciativa, considere se tornar
+            um patrocinador!
+          </p>
+          <a
+            href="https://github.com/sponsors/tatyquebralayout/"
+            target="_blank"
+            class="sponsor-button">Apoiar no GitHub Sponsors</a
+          >
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .blog-post {
+    margin-top: var(--size-10);
+  }
+
+  .post-header {
+    margin-bottom: var(--size-8);
+  }
+
+  .hero-image {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--size-5);
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  .title {
+    margin-top: var(--size-6);
+    margin-bottom: var(--size-3);
+    font-size: var(--size-10);
+    line-height: 1.1;
+  }
+
+  .metadata {
+    color: var(--color-text-light);
+    margin-bottom: var(--size-4);
+    font-size: var(--size-4);
+  }
+
+  .updated-date {
+    margin-top: var(--size-2);
+    font-style: italic;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-2);
+    margin-top: var(--size-4);
+  }
+
+  .tag {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    padding: var(--size-1) var(--size-3);
+    font-size: var(--size-3);
+    transition: background-color var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .tag:hover {
+    background-color: var(--color-primary-dark);
+    text-decoration: none;
+    color: white;
+  }
+
+  .prose {
+    font-size: var(--size-5);
+    line-height: 1.7;
+  }
+
+  .prose h2 {
+    margin-top: var(--size-10);
+    margin-bottom: var(--size-4);
+  }
+
+  .prose h3 {
+    margin-top: var(--size-8);
+    margin-bottom: var(--size-3);
+  }
+
+  .prose p {
+    margin-bottom: var(--size-4);
+    font-size: var(--size-5);
+  }
+
+  .prose a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .prose ul,
+  .prose ol {
+    margin-bottom: var(--size-4);
+    padding-left: var(--size-6);
+  }
+
+  .prose li {
+    margin-bottom: var(--size-2);
+  }
+
+  .prose blockquote {
+    position: relative;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    font-style: italic;
+    color: var(--cinza-aco-fosco, #5a5a5a);
+    border-left: 6px solid var(--dourado-cibernetico, #f4b942);
+  }
+
+  .prose blockquote::before {
+    display: none;
+  }
+
+  .prose img {
+    border-radius: var(--radius-md);
+    margin: var(--size-6) 0;
+  }
+
+  .prose pre {
+    background-color: var(--color-background-alt);
+    padding: var(--size-4);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin: var(--size-4) 0;
+  }
+
+  .prose code {
+    background-color: var(--color-background-alt);
+    padding: var(--size-1) var(--size-2);
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+  }
+
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .quote-block {
+    position: relative;
+    margin: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    border-left: 4px solid var(--dourado-cibernetico, #f4b942);
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1rem;
+    width: 24px;
+    height: 24px;
+    opacity: 0.8;
+  }
+
+  .quote-block blockquote {
+    margin: 0;
+    padding: 0;
+    border-left: none;
+    background: none;
+  }
+
+  .quote-block blockquote::before {
+    display: none;
+  }
+
+  .quote-block blockquote p {
+    margin: 0;
+    color: var(--cinza-aco-fosco, #5a5a5a);
+    font-style: italic;
+  }
+
+  .sponsor-section {
+    padding: 3rem 1rem;
+    background-color: var(--preto-profundo);
+    color: var(--branco-puro);
+    border-radius: 15px;
+    position: relative;
+    margin-top: 3rem;
+    overflow: hidden;
+  }
+
+  .sponsor-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .sponsor-icon {
+    flex: 1;
+    text-align: center;
+  }
+
+  .sponsor-icon img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .sponsor-content {
+    flex: 2;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .sponsor-content p {
+    margin-bottom: 1.2rem;
+  }
+
+  .sponsor-button {
+    background-color: var(--dourado-cibernetico, #f4b942);
+    color: var(--branco-puro, #ffffff);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .sponsor-button:hover {
+    background-color: var(--laranja-flamejante, #ff6600);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: var(--size-8);
+    }
+
+    .metadata {
+      font-size: var(--size-3);
+    }
+
+    .sponsor-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .sponsor-icon img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Função para adicionar ícones de citação a todos os blockquotes
+  document.addEventListener("DOMContentLoaded", function () {
+    const blockquotes = document.querySelectorAll(".prose blockquote");
+
+    blockquotes.forEach((blockquote) => {
+      // Verificar se o blockquote tem um elemento pai
+      if (!blockquote.parentElement) return;
+
+      // Não modificar se já estiver dentro de um quote-block
+      if (blockquote.parentElement.classList.contains("quote-block")) {
+        return;
+      }
+
+      // Criar o container
+      const quoteBlock = document.createElement("div");
+      quoteBlock.className = "quote-block";
+
+      // Criar o ícone
+      const quoteIcon = document.createElement("img");
+      quoteIcon.src = "/images/components/quote.png";
+      quoteIcon.alt = "Ícone de citação";
+      quoteIcon.className = "quote-icon";
+
+      // Inserir o ícone no container
+      quoteBlock.appendChild(quoteIcon);
+
+      // Verificar se o blockquote tem um nó pai para inserção
+      if (blockquote.parentNode) {
+        // Substituir o blockquote pelo container e mover o blockquote para dentro
+        blockquote.parentNode.insertBefore(quoteBlock, blockquote);
+        quoteBlock.appendChild(blockquote);
+      }
+    });
+  });
+</script>

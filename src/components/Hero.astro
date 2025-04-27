@@ -1,0 +1,95 @@
+---
+
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Blog Git Adventure</h1>
+    <p>
+      Explorando o universo de controle de versão e desenvolvimento colaborativo
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background-color: var(--preto-profundo);
+    background-image: linear-gradient(
+      45deg,
+      var(--preto-profundo) 0%,
+      var(--cinza-aco-fosco) 100%
+    );
+    color: var(--branco-puro);
+    padding: 4rem 1rem;
+    border-radius: 0 0 25px 25px;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: var(--laranja-flamejante);
+    opacity: 0.3;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: 1;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background-color: var(--dourado-cibernetico);
+    opacity: 0.2;
+    border-radius: 50%;
+    filter: blur(70px);
+    z-index: 1;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: var(--dourado-cibernetico);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  p {
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.5;
+    color: var(--branco-puro);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+</style>

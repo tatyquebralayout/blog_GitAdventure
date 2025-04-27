@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Paleta de Cores | Blog de Aventuras Git">
+  <div class="palette-container">
+    <h1>Paleta de Cores</h1>
+    <p class="description">Esta é a paleta de cores utilizada neste blog. As cores foram escolhidas para transmitir uma sensação de aventura e modernidade.</p>
+    
+    <div class="color-grid">
+      <div class="color-card bg-laranja-flamejante">
+        <div class="color-info">
+          <h3>Laranja Flamejante</h3>
+          <p class="color-hex">#FF6600</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-vermelho-vulcanico">
+        <div class="color-info">
+          <h3>Vermelho Vulcânico</h3>
+          <p class="color-hex">#C62D00</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-preto-profundo">
+        <div class="color-info">
+          <h3 class="text-white">Preto Profundo</h3>
+          <p class="color-hex text-white">#0F0F0F</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-cinza-aco-fosco">
+        <div class="color-info">
+          <h3 class="text-white">Cinza Aço Fosco</h3>
+          <p class="color-hex text-white">#444444</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-verde-musgo-queimado">
+        <div class="color-info">
+          <h3 class="text-white">Verde Musgo Queimado</h3>
+          <p class="color-hex text-white">#5A6B3F</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-dourado-cibernetico">
+        <div class="color-info">
+          <h3>Dourado Cibernético</h3>
+          <p class="color-hex">#F4B942</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-laranja-incandescente-claro">
+        <div class="color-info">
+          <h3>Laranja Incandescente Claro</h3>
+          <p class="color-hex">#FFAE42</p>
+        </div>
+      </div>
+      
+      <div class="color-card bg-branco-puro">
+        <div class="color-info">
+          <h3>Branco Puro</h3>
+          <p class="color-hex">#FFFFFF</p>
+        </div>
+      </div>
+    </div>
+    
+    <h2>Usos Funcionais</h2>
+    
+    <div class="demo-section">
+      <h3>Tipografia</h3>
+      <p>O texto principal utiliza a cor <span class="texto-preto-profundo font-bold">Preto Profundo</span> para máxima legibilidade.</p>
+      <p>Os cabeçalhos utilizam a cor <span class="texto-verde-musgo-queimado font-bold">Verde Musgo Queimado</span> para contraste e hierarquia visual.</p>
+      <p>Os links utilizam a cor <span class="texto-vermelho-vulcanico font-bold">Vermelho Vulcânico</span> em seu estado normal.</p>
+      <p>Ao passar o mouse sobre links, eles mudam para <span class="texto-laranja-incandescente-claro font-bold">Laranja Incandescente Claro</span>.</p>
+    </div>
+    
+    <div class="demo-section">
+      <h3>Botões</h3>
+      <div class="button-container">
+        <button class="btn">Botão Padrão</button>
+        <button class="btn btn-primary">Botão Primário</button>
+        <button class="btn btn-secondary">Botão Secundário</button>
+      </div>
+    </div>
+    
+    <div class="demo-section">
+      <h3>Cartões e Elementos</h3>
+      <div class="cards-demo">
+        <div class="card">
+          <h4>Título do Cartão</h4>
+          <p>Este é um exemplo de cartão utilizando as cores da paleta.</p>
+          <div class="tag-container">
+            <span class="tag">Tag 1</span>
+            <span class="tag">Tag 2</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4>Blocos de Citação</h4>
+          <blockquote>
+            Esta é uma citação de exemplo que demonstra como os blocos de citação são estilizados com a paleta de cores.
+          </blockquote>
+        </div>
+        
+        <div>
+          <h4>Blocos de Código</h4>
+          <pre><code>// Exemplo de código JavaScript
+function exemploFuncao() {
+  const mensagem = 'Olá, mundo!';
+  console.log(mensagem);
+  return mensagem;
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .palette-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .color-card {
+    height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .color-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .color-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .bg-preto-profundo .color-info,
+  .bg-cinza-aco-fosco .color-info,
+  .bg-verde-musgo-queimado .color-info {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .color-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .color-hex {
+    margin: 0.3rem 0 0 0;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .demo-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--branco-puro);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .cards-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .font-bold {
+    font-weight: bold;
+  }
+  
+  .tag-container {
+    margin-top: 1rem;
+  }
+</style> 

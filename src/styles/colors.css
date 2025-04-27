@@ -1,0 +1,74 @@
+:root {
+  /* Paleta de Cores Principal */
+  --laranja-flamejante: #ff6600;
+  --vermelho-vulcanico: #c62d00;
+  --preto-profundo: #0f0f0f;
+  --cinza-aco-fosco: #444444;
+  --verde-musgo-queimado: #5a6b3f;
+  --dourado-cibernetico: #f4b942;
+  --laranja-incandescente-claro: #ffae42;
+  --branco-puro: #ffffff;
+
+  /* Cores para uso funcional */
+  --cor-fundo: var(--branco-puro);
+  --cor-texto: var(--preto-profundo);
+  --cor-cabecalho: var(--verde-musgo-queimado);
+  --cor-destaque: var(--laranja-flamejante);
+  --cor-link: var(--vermelho-vulcanico);
+  --cor-link-hover: var(--laranja-incandescente-claro);
+  --cor-borda: var(--cinza-aco-fosco);
+  --cor-botao: var(--dourado-cibernetico);
+  --cor-rodape: var(--cinza-aco-fosco);
+}
+
+/* Classes utilitárias para cores de texto */
+.texto-laranja-flamejante {
+  color: var(--laranja-flamejante);
+}
+.texto-vermelho-vulcanico {
+  color: var(--vermelho-vulcanico);
+}
+.texto-preto-profundo {
+  color: var(--preto-profundo);
+}
+.texto-cinza-aco-fosco {
+  color: var(--cinza-aco-fosco);
+}
+.texto-verde-musgo-queimado {
+  color: var(--verde-musgo-queimado);
+}
+.texto-dourado-cibernetico {
+  color: var(--dourado-cibernetico);
+}
+.texto-laranja-incandescente-claro {
+  color: var(--laranja-incandescente-claro);
+}
+.texto-branco-puro {
+  color: var(--branco-puro);
+}
+
+/* Classes utilitárias para cores de fundo */
+.bg-laranja-flamejante {
+  background-color: var(--laranja-flamejante);
+}
+.bg-vermelho-vulcanico {
+  background-color: var(--vermelho-vulcanico);
+}
+.bg-preto-profundo {
+  background-color: var(--preto-profundo);
+}
+.bg-cinza-aco-fosco {
+  background-color: var(--cinza-aco-fosco);
+}
+.bg-verde-musgo-queimado {
+  background-color: var(--verde-musgo-queimado);
+}
+.bg-dourado-cibernetico {
+  background-color: var(--dourado-cibernetico);
+}
+.bg-laranja-incandescente-claro {
+  background-color: var(--laranja-incandescente-claro);
+}
+.bg-branco-puro {
+  background-color: var(--branco-puro);
+}

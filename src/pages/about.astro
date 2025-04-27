@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Me">
+  <div class="about-page container">
+    <header class="page-header slide-up">
+      <h1>About Me</h1>
+    </header>
+    
+    <div class="about-content">
+      <div class="profile-section">
+        <img 
+          src="https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg" 
+          alt="Profile image" 
+          class="profile-image fade-in"
+        />
+        
+        <div class="profile-info slide-up">
+          <h2>Hi, I'm [Your Name]</h2>
+          <p class="tagline">Writer, developer, and technology enthusiast.</p>
+          
+          <div class="social-links">
+            <a href="https://twitter.com/yourusername" aria-label="Twitter" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+            </a>
+            <a href="https://github.com/yourusername" aria-label="GitHub" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://linkedin.com/in/yourusername" aria-label="LinkedIn" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bio-section">
+        <h3>About</h3>
+        <p>
+          Hello! I'm a passionate writer and developer with a keen interest in technology, design, and the intersection of both. 
+          This blog is my digital garden where I share my thoughts, experiences, and learnings.
+        </p>
+        
+        <p>
+          I have over 10 years of experience in software development, having worked with various technologies and frameworks. 
+          My goal is to create content that is both informative and accessible, helping others navigate the ever-evolving tech landscape.
+        </p>
+        
+        <h3>Expertise</h3>
+        <ul class="expertise-list">
+          <li>Web Development (JavaScript, TypeScript, React)</li>
+          <li>User Experience Design</li>
+          <li>Technical Writing & Documentation</li>
+          <li>Performance Optimization</li>
+          <li>Accessibility</li>
+        </ul>
+        
+        <h3>Why This Blog</h3>
+        <p>
+          I started this blog to share my knowledge, document my learning journey, and connect with like-minded individuals. 
+          My writing focuses on practical insights, tutorials, and thought pieces that reflect my experiences and interests.
+        </p>
+        
+        <p>
+          Whether you're a seasoned developer, a design enthusiast, or someone curious about technology, I hope you find 
+          something valuable here. Feel free to reach out if you have any questions or just want to chat!
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .about-page {
+    padding: var(--size-8) 0;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--size-10);
+  }
+  
+  .page-header h1 {
+    font-size: var(--size-12);
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .profile-section {
+    display: flex;
+    gap: var(--size-8);
+    margin-bottom: var(--size-10);
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-primary);
+  }
+  
+  .profile-info {
+    flex: 1;
+  }
+  
+  .profile-info h2 {
+    margin-top: 0;
+    font-size: var(--size-6);
+  }
+  
+  .tagline {
+    color: var(--color-text-light);
+    font-size: var(--size-4);
+    margin-bottom: var(--size-4);
+  }
+  
+  .social-links {
+    display: flex;
+    gap: var(--size-4);
+  }
+  
+  .social-links a {
+    color: var(--color-text);
+    transition: 
+      color var(--transition-fast),
+      transform var(--transition-fast);
+  }
+  
+  .social-links a:hover {
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+  
+  .bio-section {
+    line-height: 1.7;
+  }
+  
+  .bio-section h3 {
+    font-size: var(--size-5);
+    margin-top: var(--size-8);
+    margin-bottom: var(--size-3);
+    color: var(--color-primary);
+  }
+  
+  .bio-section p {
+    margin-bottom: var(--size-4);
+  }
+  
+  .expertise-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--size-3);
+  }
+  
+  .expertise-list li {
+    background-color: var(--color-background-alt);
+    padding: var(--size-3);
+    border-radius: var(--radius-md);
+    font-size: var(--size-3);
+  }
+  
+  @media (max-width: 768px) {
+    .profile-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--size-4);
+    }
+    
+    .social-links {
+      justify-content: center;
+    }
+    
+    .expertise-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

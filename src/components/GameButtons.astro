@@ -1,0 +1,190 @@
+---
+interface Props {
+  buttons?: Array<{
+    text: string;
+    url?: string;
+    color: "blue" | "red" | "gold" | "purple";
+    type?: "button" | "submit" | "reset";
+    onClick?: string;
+  }>;
+  size?: "small" | "medium" | "large";
+  inline?: boolean;
+}
+
+const {
+  buttons = [
+    { text: "Explorar", url: "/blog", color: "blue" },
+    { text: "Continuar", url: "/blog/latest", color: "red" },
+    { text: "Missões", url: "/quests", color: "gold" },
+    { text: "Inventário", url: "/about", color: "purple" },
+  ],
+  size = "medium",
+  inline = false,
+} = Astro.props;
+---
+
+<div class={`game-buttons ${inline ? "inline" : ""} ${size}`}>
+  {
+    buttons.map((button) =>
+      button.url ? (
+        <a href={button.url} class={`game-button ${button.color} ${size}`}>
+          <span class="button-text">{button.text}</span>
+        </a>
+      ) : (
+        <button
+          type={button.type || "button"}
+          class={`game-button ${button.color} ${size}`}
+          onclick={button.onClick}
+        >
+          <span class="button-text">{button.text}</span>
+        </button>
+      )
+    )
+  }
+</div>
+
+<style>
+  .game-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .game-buttons.inline {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .game-button {
+    position: relative;
+    display: block;
+    padding: 1.2rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2.2rem;
+    font-weight: 700;
+    border-radius: 12px;
+    transition:
+      transform 0.2s ease,
+      filter 0.2s ease;
+    overflow: hidden;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+    transform-style: preserve-3d;
+    color: var(--dourado-cibernetico);
+    border-width: 5px;
+    font-family: serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  button.game-button {
+    background: none;
+    width: 100%;
+  }
+
+  .game-buttons.small .game-button {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-width: 3px;
+  }
+
+  .game-buttons.large .game-button {
+    font-size: 2.5rem;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .button-text {
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .game-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+    z-index: 1;
+  }
+
+  .game-button:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+
+  .game-button:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .game-button:active {
+    transform: translateY(0);
+    filter: brightness(0.9);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Cores específicas dos botões */
+  .blue {
+    background-color: #1c3550;
+    border: 5px solid #2d4a68;
+  }
+
+  .small .blue {
+    border-width: 3px;
+  }
+
+  .red {
+    background-color: #8b2e29;
+    border: 5px solid #a93b35;
+  }
+
+  .small .red {
+    border-width: 3px;
+  }
+
+  .gold {
+    background-color: #e9a52c;
+    border: 5px solid #ffc042;
+    color: #312607;
+  }
+
+  .small .gold {
+    border-width: 3px;
+  }
+
+  .purple {
+    background-color: #3e2056;
+    border: 5px solid #542c70;
+  }
+
+  .small .purple {
+    border-width: 3px;
+  }
+
+  @media (max-width: 768px) {
+    .game-button {
+      font-size: 1.8rem;
+      padding: 1rem 0.8rem;
+    }
+
+    .game-buttons.inline {
+      flex-direction: column;
+    }
+  }
+</style>

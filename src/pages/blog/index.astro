@@ -1,0 +1,192 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Get all unique tags
+const allTags = [...new Set(posts.flatMap(post => post.data.tags || []))].sort();
+---
+
+<Layout title="Blog - All Posts">
+  <div class="blog-page container">
+    <header class="page-header">
+      <h1>Blog</h1>
+      <p>Thoughts, stories and ideas on technology, design and life.</p>
+    </header>
+    
+    <div class="tags-filter">
+      <span class="filter-label">Filter by:</span>
+      <div class="tags-list">
+        <a href="/blog" class={!Astro.url.searchParams.get('tag') ? 'active' : ''}>
+          All
+        </a>
+        {allTags.map(tag => (
+          <a 
+            href={`/blog?tag=${tag}`}
+            class={Astro.url.searchParams.get('tag') === tag ? 'active' : ''}
+          >
+            {tag}
+          </a>
+        ))}
+      </div>
+    </div>
+    
+    <div class="posts-grid">
+      {posts.map(post => (
+        <BlogPostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          url={`/blog/${post.slug}/`}
+          heroImage={post.data.heroImage}
+          tags={post.data.tags}
+        />
+      ))}
+    </div>
+    
+    {posts.length === 0 && (
+      <div class="no-posts">
+        <p>No posts found. Check back soon!</p>
+      </div>
+    )}
+  </div>
+</Layout>
+
+<style>
+  .blog-page {
+    padding: var(--size-8) 0;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--size-10);
+  }
+  
+  .page-header h1 {
+    font-size: var(--size-12);
+    margin-bottom: var(--size-3);
+  }
+  
+  .page-header p {
+    font-size: var(--size-5);
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--size-6);
+    margin-top: var(--size-8);
+  }
+  
+  .tags-filter {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--size-6);
+    overflow-x: auto;
+    padding-bottom: var(--size-3);
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .tags-filter::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .filter-label {
+    font-weight: 500;
+    margin-right: var(--size-3);
+    white-space: nowrap;
+  }
+  
+  .tags-list {
+    display: flex;
+    gap: var(--size-2);
+    flex-wrap: nowrap;
+  }
+  
+  .tags-list a {
+    padding: var(--size-2) var(--size-3);
+    background-color: var(--color-background-alt);
+    border-radius: var(--radius-md);
+    font-size: var(--size-3);
+    white-space: nowrap;
+    transition: 
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+  
+  .tags-list a:hover, .tags-list a.active {
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+  }
+  
+  .no-posts {
+    text-align: center;
+    padding: var(--size-10);
+    font-size: var(--size-4);
+    color: var(--color-text-light);
+  }
+  
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: var(--size-8);
+    }
+    
+    .page-header p {
+      font-size: var(--size-4);
+    }
+    
+    .tags-filter {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--size-3);
+    }
+    
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Filter logic (client-side)
+  const params = new URLSearchParams(window.location.search);
+  const tagFilter = params.get('tag');
+  
+  if (tagFilter) {
+    const cards = document.querySelectorAll('.post-card');
+    let visibleCount = 0;
+    
+    cards.forEach(card => {
+      const tagElements = card.querySelectorAll('.post-tag');
+      const cardTags = Array.from(tagElements).map(el => el.textContent?.trim());
+      
+      // If card doesn't have the filtered tag, hide it
+      if (!cardTags.includes(tagFilter)) {
+        (card as HTMLElement).style.display = 'none';
+      } else {
+        visibleCount++;
+      }
+    });
+    
+    // Show "no posts" message if needed
+    if (visibleCount === 0) {
+      const noPostsDiv = document.createElement('div');
+      noPostsDiv.className = 'no-posts';
+      noPostsDiv.innerHTML = `<p>No posts found with tag "${tagFilter}".</p>`;
+      
+      const postsGrid = document.querySelector('.posts-grid');
+      postsGrid?.parentNode?.insertBefore(noPostsDiv, postsGrid.nextSibling);
+    }
+  }
+</script>

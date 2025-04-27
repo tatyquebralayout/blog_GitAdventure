@@ -1,0 +1,38 @@
+{
+  "version": "0.2",
+  "language": "en,pt-br",
+  "dictionaries": [
+    "en_US",
+    "pt_BR",
+    "softwareTerms",
+    "typescript",
+    "html",
+    "css",
+    "npm"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    ".git/**",
+    "dist/**",
+    ".astro/**"
+  ],
+  "ignoreRegExpList": [
+    "\\(.*\\)",
+    "/^```[\\s\\S]*?```$/gm",
+    "/'.*?'/",
+    "/`.*?`/",
+    "URL\\(.*\\)",
+    "\\[.*\\]"
+  ],
+  "words": [
+    "astro",
+    "Astro",
+    "pubDate",
+    "heroImage",
+    "srcset",
+    "webp",
+    "raycast",
+    "minimalist",
+    "hyperconnected"
+  ]
+} 

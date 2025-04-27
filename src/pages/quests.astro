@@ -1,0 +1,222 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GameButtons from "../components/GameButtons.astro";
+---
+
+<Layout title="Missões | Blog Git Aventuras">
+  <div class="quests-container">
+    <h1>Missões Git</h1>
+
+    <p class="intro">
+      Complete as missões abaixo para se tornar um verdadeiro mestre do Git.
+      Cada missão representa um desafio comum que desenvolvedores enfrentam ao
+      utilizar controle de versão.
+    </p>
+
+    <div class="quests-grid">
+      <div class="quest-card">
+        <div class="quest-header">
+          <span class="difficulty">Fácil</span>
+          <h3>Primeiros Commits</h3>
+        </div>
+        <p>
+          Aprenda a criar seu primeiro repositório e fazer commits iniciais.
+        </p>
+        <div class="quest-footer">
+          <span class="reward">Recompensa: +10 XP</span>
+          <a href="/blog/primeiro-commit" class="quest-btn">Iniciar</a>
+        </div>
+      </div>
+
+      <div class="quest-card">
+        <div class="quest-header">
+          <span class="difficulty medium">Médio</span>
+          <h3>Resolvendo Conflitos</h3>
+        </div>
+        <p>Domine a arte de resolver conflitos de merge entre branches.</p>
+        <div class="quest-footer">
+          <span class="reward">Recompensa: +25 XP</span>
+          <a href="/blog/conflitos" class="quest-btn">Iniciar</a>
+        </div>
+      </div>
+
+      <div class="quest-card">
+        <div class="quest-header">
+          <span class="difficulty hard">Difícil</span>
+          <h3>Git Rebase Avançado</h3>
+        </div>
+        <p>
+          Aprenda técnicas avançadas de rebase para manter um histórico limpo.
+        </p>
+        <div class="quest-footer">
+          <span class="reward">Recompensa: +50 XP</span>
+          <a href="/blog/rebase-avancado" class="quest-btn">Iniciar</a>
+        </div>
+      </div>
+
+      <div class="quest-card locked">
+        <div class="quest-header">
+          <span class="difficulty legendary">Lendário</span>
+          <h3>Workflow Git Customizado</h3>
+        </div>
+        <p>Crie seu próprio workflow Git otimizado para sua equipe.</p>
+        <div class="quest-footer">
+          <span class="reward">Recompensa: +100 XP</span>
+          <span class="locked-info"
+            >Desbloqueie completando as missões anteriores</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="back-to-menu">
+      <GameButtons
+        buttons={[{ text: "Voltar ao Menu", url: "/", color: "blue" }]}
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .quests-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: var(--dourado-cibernetico);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .intro {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+  }
+
+  .quests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .quest-card {
+    background-color: var(--branco-puro);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border-left: 5px solid var(--verde-musgo-queimado);
+  }
+
+  .quest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .quest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .quest-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--preto-profundo);
+  }
+
+  .difficulty {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .medium {
+    background-color: #ffc107;
+    color: #333;
+  }
+
+  .hard {
+    background-color: #f44336;
+  }
+
+  .legendary {
+    background: linear-gradient(45deg, #9c27b0, #673ab7);
+  }
+
+  .quest-card p {
+    flex: 1;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .quest-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .reward {
+    font-size: 0.9rem;
+    color: var(--cinza-aco-fosco);
+    font-weight: bold;
+  }
+
+  .quest-btn {
+    background-color: var(--dourado-cibernetico);
+    color: var(--preto-profundo);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .quest-btn:hover {
+    background-color: var(--laranja-flamejante);
+    color: var(--branco-puro);
+    text-decoration: none;
+  }
+
+  .locked {
+    opacity: 0.7;
+    border-left: 5px solid var(--cinza-aco-fosco);
+  }
+
+  .locked-info {
+    font-size: 0.8rem;
+    color: var(--vermelho-vulcanico);
+    font-style: italic;
+  }
+
+  .back-to-menu {
+    max-width: 300px;
+    margin: 3rem auto 0;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .quests-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

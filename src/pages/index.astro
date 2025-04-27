@@ -1,0 +1,1666 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import BlogPostCard from "../components/BlogPostCard.astro";
+import Hero from "../components/Hero.astro";
+import GameButtons from "../components/GameButtons.astro";
+import ReadMore from "../components/ReadMore.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+---
+
+<Layout title="Blog Git Aventuras - Home">
+  <Hero />
+
+  <section class="project-section">
+    <div class="bg-overlay"></div>
+    <div class="container">
+      <h2>O Projeto</h2>
+      <div class="project-content">
+        <div class="project-text">
+          <p>
+            <strong>Git Aventuras</strong> é um projeto dedicado a transformar o
+            aprendizado de controle de versão em uma experiência divertida e envolvente.
+          </p>
+          <p>
+            Através de tutoriais interativos, missões práticas e exemplos do
+            mundo real, tornamos o Git acessível tanto para iniciantes quanto
+            para desenvolvedores experientes.
+          </p>
+          <GameButtons
+            buttons={[
+              { text: "Explorar Missões", url: "/quests", color: "gold" },
+            ]}
+            size="small"
+          />
+        </div>
+        <div class="project-features">
+          <div class="feature">
+            <div class="feature-icon">📚</div>
+            <h3>Tutoriais Claros</h3>
+            <p>Explicações passo a passo dos conceitos fundamentais do Git</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🎮</div>
+            <h3>Missões Práticas</h3>
+            <p>
+              Desafios interativos para aplicar os conhecimentos em cenários
+              reais
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🌐</div>
+            <h3>Comunidade</h3>
+            <p>
+              Compartilhe experiências e aprenda com outros aventureiros do Git
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="worldbuilding-section">
+    <div class="container">
+      <h2>Worldbuilding</h2>
+      <div class="badges-grid">
+        <div class="badge-row">
+          <div class="badge-circle">
+            <img src="/images/badges/badge1.png" alt="Emblema Git Commit" />
+            <span class="badge-title">Git Commit</span>
+          </div>
+          <div class="badge-circle">
+            <img src="/images/badges/badge2.png" alt="Emblema Git Push" />
+            <span class="badge-title">Git Push</span>
+          </div>
+          <div class="badge-circle">
+            <img src="/images/badges/badge3.png" alt="Emblema Git Pull" />
+            <span class="badge-title">Git Pull</span>
+          </div>
+        </div>
+        <div class="badge-row">
+          <div class="badge-circle">
+            <img src="/images/badges/badge4.png" alt="Emblema Git Branch" />
+            <span class="badge-title">Git Branch</span>
+          </div>
+          <div class="badge-circle">
+            <img src="/images/badges/badge5.png" alt="Emblema Git Merge" />
+            <span class="badge-title">Git Merge</span>
+          </div>
+          <div class="badge-circle">
+            <img src="/images/badges/badge6.png" alt="Emblema Git Reset" />
+            <span class="badge-title">Git Reset</span>
+          </div>
+        </div>
+        <div class="badge-row">
+          <div class="badge-circle">
+            <img src="/images/badges/badge7.png" alt="Emblema Git Clone" />
+            <span class="badge-title">Git Clone</span>
+          </div>
+          <div class="badge-circle">
+            <span class="badge-coming-soon">Em breve</span>
+          </div>
+          <div class="badge-circle">
+            <span class="badge-coming-soon">Em breve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="artifacts-section">
+    <div class="container">
+      <h2>Artefatos</h2>
+      <p class="section-description">
+        Colete artefatos durante suas missões Git e desbloqueie habilidades
+        especiais para seu personagem.
+      </p>
+
+      <div class="artifacts-grid">
+        <div class="artifact-card">
+          <div class="artifact-image">
+            <div class="artifact-glow"></div>
+            <img
+              src="/images/artifacts/cardverso_pergaminho.png"
+              alt="Pergaminho do Commit"
+            />
+          </div>
+          <h3>Pergaminho do Commit</h3>
+          <p>
+            Permite criar pontos de salvamento em sua jornada com mensagens
+            detalhadas.
+          </p>
+          <span class="artifact-rarity legendary">Lendário</span>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-image">
+            <div class="artifact-glow"></div>
+            <img
+              src="/images/artifacts/cardverso_altar de log.png"
+              alt="Amuleto do Merge"
+            />
+          </div>
+          <h3>Altar de Log</h3>
+          <p>
+            Revela o histórico completo de todas as alterações feitas no
+            repositório.
+          </p>
+          <span class="artifact-rarity epic">Épico</span>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-image">
+            <div class="artifact-glow"></div>
+            <img
+              src="/images/artifacts/cardverso_cristal.png"
+              alt="Cristal do Rebase"
+            />
+          </div>
+          <h3>Cristal do Rebase</h3>
+          <p>
+            Reescreve a história de suas aventuras mantendo uma linha do tempo
+            linear.
+          </p>
+          <span class="artifact-rarity rare">Raro</span>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-image">
+            <div class="artifact-glow"></div>
+            <img
+              src="/images/artifacts/cardverso_coracao.png"
+              alt="Coração do Stash"
+            />
+          </div>
+          <h3>Coração do Stash</h3>
+          <p>Armazena temporariamente suas mudanças para uso futuro.</p>
+          <span class="artifact-rarity uncommon">Incomum</span>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-image">
+            <div class="artifact-glow"></div>
+            <img
+              src="/images/artifacts/cardverso_mago.png"
+              alt="Mago do Checkout"
+            />
+          </div>
+          <h3>Mago do Checkout</h3>
+          <p>
+            Permite viajar instantaneamente entre diferentes pontos da história.
+          </p>
+          <span class="artifact-rarity rare">Raro</span>
+        </div>
+
+        <div class="artifact-card">
+          <div class="artifact-image">
+            <div class="artifact-glow"></div>
+            <img
+              src="/images/artifacts/cardverso_feiticeira.png"
+              alt="Feiticeira do Clone"
+            />
+          </div>
+          <h3>Feiticeira do Clone</h3>
+          <p>
+            Cria uma cópia exata de qualquer repositório mágico de conhecimento.
+          </p>
+          <span class="artifact-rarity epic">Épico</span>
+        </div>
+      </div>
+
+      <div class="artifact-cta">
+        <a href="/artifacts" class="artifact-button">Ver Todos os Artefatos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="container">
+      <h2>Galeria de Imagens</h2>
+
+      <div class="gallery-container">
+        <div class="gallery-main">
+          <div class="gallery-slides">
+            <div class="gallery-slide active" id="slide-1">
+              <img
+                src="/images/gallery/GRANDEBARRAGEMDOCODIGOPERDIDO.png"
+                alt="Grande Barragem do Código Perdido"
+                class="gallery-img"
+              />
+              <div class="gallery-caption">
+                Grande Barragem do Código Perdido - Repositório de código legado
+              </div>
+            </div>
+
+            <div class="gallery-slide" id="slide-2">
+              <img
+                src="/images/gallery/fluxo mavem.png"
+                alt="Fluxo Maven"
+                class="gallery-img"
+              />
+              <div class="gallery-caption">
+                Cidadela Maven - Sistema de gerenciamento de dependências
+              </div>
+            </div>
+
+            <div class="gallery-slide" id="slide-3">
+              <img
+                src="/images/gallery/FLORESTADEDADOS.png"
+                alt="Floresta de Dados"
+                class="gallery-img"
+              />
+              <div class="gallery-caption">
+                Floresta de Dados - Onde os algoritmos de busca são testados
+              </div>
+            </div>
+
+            <div class="gallery-slide" id="slide-4">
+              <img
+                src="/images/gallery/Confluência dos Paradigmas.png"
+                alt="Confluência dos Paradigmas"
+                class="gallery-img"
+              />
+              <div class="gallery-caption">
+                Confluência dos Paradigmas - Onde diferentes linguagens se
+                encontram
+              </div>
+            </div>
+
+            <div class="gallery-slide" id="slide-5">
+              <img
+                src="/images/gallery/JARDIM IDENTACAO.png"
+                alt="Jardim da Indentação"
+                class="gallery-img"
+              />
+              <div class="gallery-caption">
+                Jardim da Indentação - Cultivando código limpo e organizado
+              </div>
+            </div>
+
+            <div class="gallery-slide" id="slide-6">
+              <img
+                src="/images/gallery/21dcab35-addf-4ecc-b6a9-9c0bcee5becb.png"
+                alt="Grande Barragem dos Códigos Perdidos"
+                class="gallery-img"
+              />
+              <div class="gallery-caption">
+                Grande Barragem dos Códigos Perdidos
+              </div>
+              <div class="gallery-description">
+                <p>
+                  A Grande Barragem dos Códigos Perdidos ergue-se poderosa sobre
+                  um braço do Lago de Cache.
+                </p>
+                <p>
+                  Sua função é regular o fluxo intenso de dados e energia,
+                  impedindo que as memórias antigas e fragmentadas invadam o
+                  mundo conhecido.
+                </p>
+                <p>
+                  Nas paredes da barragem, símbolos gravados em pedra registram
+                  linguagens esquecidas e commits ancestrais.
+                </p>
+                <p>
+                  Fluxos de cor verde que um dia foi azul, se encontra em
+                  processo de reciclagem percorrem os canais de drenagem,
+                  guiando a corrente vital dos dados para os sistemas que ainda
+                  sobrevivem.
+                </p>
+                <p>
+                  <strong>Região:</strong> Sul do território da União C++. Ela é
+                  o ponto de contenção de dados antigos e corrompidos.
+                </p>
+                <p>
+                  Fica nas extremidades da civilização C++, onde as memórias
+                  precisam ser organizadas antes de serem distribuídas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-controls">
+            <button class="gallery-prev" aria-label="Imagem anterior">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="gallery-dots">
+              <span class="gallery-dot active" data-slide="1"></span>
+              <span class="gallery-dot" data-slide="2"></span>
+              <span class="gallery-dot" data-slide="3"></span>
+              <span class="gallery-dot" data-slide="4"></span>
+              <span class="gallery-dot" data-slide="5"></span>
+              <span class="gallery-dot" data-slide="6"></span>
+            </div>
+            <button class="gallery-next" aria-label="Próxima imagem">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active" data-slide="1">
+            <img
+              src="/images/gallery/GRANDEBARRAGEMDOCODIGOPERDIDO.png"
+              alt="Miniatura 1"
+            />
+          </div>
+          <div class="gallery-thumb" data-slide="2">
+            <img src="/images/gallery/fluxo mavem.png" alt="Miniatura 2" />
+          </div>
+          <div class="gallery-thumb" data-slide="3">
+            <img src="/images/gallery/FLORESTADEDADOS.png" alt="Miniatura 3" />
+          </div>
+          <div class="gallery-thumb" data-slide="4">
+            <img
+              src="/images/gallery/Confluência dos Paradigmas.png"
+              alt="Miniatura 4"
+            />
+          </div>
+          <div class="gallery-thumb" data-slide="5">
+            <img src="/images/gallery/JARDIM IDENTACAO.png" alt="Miniatura 5" />
+          </div>
+          <div class="gallery-thumb" data-slide="6">
+            <img
+              src="/images/gallery/21dcab35-addf-4ecc-b6a9-9c0bcee5becb.png"
+              alt="Miniatura 6"
+            />
+          </div>
+        </div>
+      </div>
+
+      <p class="gallery-note">
+        Todas as imagens estão disponíveis para download no <a
+          href="https://github.com/gitadventure/media-assets"
+          target="_blank">repositório oficial</a
+        > do projeto.
+      </p>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="container">
+      <h2>Vídeo em Destaque</h2>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <!-- Placeholder para o vídeo, substitua o src com seu vídeo do YouTube, Vimeo, etc. -->
+          <iframe
+            src="about:blank"
+            title="Vídeo em destaque sobre Git Aventuras"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+
+      <p class="video-description">
+        Assista nosso vídeo tutorial e aprenda os principais comandos do Git
+        através de uma aventura interativa. Descubra como enfrentar desafios
+        comuns como conflitos de merge, rebasing, e muito mais.
+      </p>
+    </div>
+  </section>
+
+  <section class="featured-posts">
+    <div class="section-header">
+      <h2>Artigos Recentes</h2>
+      <ReadMore text="Ver todos os artigos" href="/blog" />
+    </div>
+
+    <div class="posts-grid">
+      {
+        posts.map((post) => (
+          <BlogPostCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            url={`/blog/${post.slug}/`}
+            heroImage={post.data.heroImage}
+            tags={post.data.tags}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="supporters-section">
+    <h2>Apoiadores do Projeto</h2>
+    <div class="supporters-grid">
+      <div class="supporter-card">
+        <div class="supporter-avatar">
+          <img src="/images/supporters/avatar1.png" alt="Maria Silva" />
+        </div>
+        <h3>Maria Silva</h3>
+        <p class="supporter-role">Desenvolvedora Frontend</p>
+        <div class="supporter-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="supporter-card">
+        <div class="supporter-avatar">
+          <img src="/images/supporters/avatar2.png" alt="Carlos Mendes" />
+        </div>
+        <h3>Carlos Mendes</h3>
+        <p class="supporter-role">DevOps Engineer</p>
+        <div class="supporter-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="supporter-card">
+        <div class="supporter-avatar">
+          <img src="/images/supporters/avatar3.png" alt="Ana Oliveira" />
+        </div>
+        <h3>Ana Oliveira</h3>
+        <p class="supporter-role">Game Designer</p>
+        <div class="supporter-social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a
+          >
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <div class="supporter-card">
+        <div class="supporter-avatar">
+          <img src="/images/supporters/avatar4.png" alt="Pedro Santos" />
+        </div>
+        <h3>Pedro Santos</h3>
+        <p class="supporter-role">Educador Tech</p>
+        <div class="supporter-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="supporter-card">
+        <div class="supporter-avatar">
+          <img src="/images/supporters/avatar5.png" alt="Juliana Costa" />
+        </div>
+        <h3>Juliana Costa</h3>
+        <p class="supporter-role">Ilustradora</p>
+        <div class="supporter-social">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a
+          >
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="supporter-card">
+        <div class="supporter-avatar">
+          <img src="/images/supporters/avatar6.png" alt="Ricardo Ferreira" />
+        </div>
+        <h3>Ricardo Ferreira</h3>
+        <p class="supporter-role">Contribuidor Open Source</p>
+        <div class="supporter-social">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsor-section">
+    <div class="sponsor-container">
+      <div class="sponsor-icon">
+        <img
+          src="https://i.postimg.cc/m1Wbq4XQ/sponsor.png"
+          alt="Ícone de patrocinador"
+        />
+      </div>
+      <div class="sponsor-content">
+        <p>
+          Este projeto é mantido com o apoio da comunidade. Se você gostou do
+          conteúdo e quer ajudar a continuar a iniciativa, considere se tornar
+          um patrocinador!
+        </p>
+        <a
+          href="https://github.com/sponsors/tatyquebralayout/"
+          target="_blank"
+          class="sponsor-button">Apoiar no GitHub Sponsors</a
+        >
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .project-section {
+    padding: 4rem 1rem;
+    background-color: var(--preto-profundo);
+    background-image: url("/images/blog/bakgrand1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--branco-puro);
+    border-radius: 0 0 15px 15px;
+    position: relative;
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+
+  .bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(15, 15, 15, 0.5);
+    z-index: 1;
+  }
+
+  .project-section::before {
+    display: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--dourado-cibernetico);
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .project-content {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .project-text {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .project-text p {
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  .project-text strong {
+    color: var(--dourado-cibernetico);
+    font-weight: 700;
+  }
+
+  .project-features {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border: 1px solid rgba(244, 185, 66, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.4),
+      0 0 15px rgba(244, 185, 66, 0.2);
+    border-color: rgba(244, 185, 66, 0.3);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--laranja-flamejante);
+  }
+
+  .feature p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+
+  .worldbuilding-section {
+    padding: 4rem 1rem;
+    margin: 3rem 0;
+    background-color: var(--verde-musgo-queimado);
+    background-image: url("/images/caverna.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--branco-puro);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .worldbuilding-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to right,
+      rgba(90, 107, 63, 0.8) 0%,
+      rgba(15, 15, 15, 0.9) 120%
+    );
+    z-index: 1;
+  }
+
+  .worldbuilding-section .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .worldbuilding-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--dourado-cibernetico);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .badges-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .badge-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+  }
+
+  .badge-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--dourado-cibernetico);
+    box-shadow:
+      0 0 15px rgba(244, 185, 66, 0.3),
+      inset 0 0 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .badge-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .badge-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--dourado-cibernetico);
+    padding: 5px 0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 3;
+  }
+
+  .badge-coming-soon {
+    color: var(--branco-puro);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.7;
+    text-shadow: 0 0 10px var(--ciano-eletrico);
+  }
+
+  .badge-circle:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 0 25px rgba(244, 185, 66, 0.5),
+      inset 0 0 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  .badge-circle:hover img {
+    transform: scale(0.9);
+  }
+
+  .badge-circle:hover .badge-title {
+    transform: translateY(0);
+  }
+
+  .featured-posts {
+    padding: 2rem 1rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: var(--verde-musgo-queimado);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .sponsor-section {
+    padding: 4rem 1rem;
+    background-color: var(--preto-profundo);
+    color: var(--branco-puro);
+    border-radius: 15px;
+    position: relative;
+    margin-top: 3rem;
+    overflow: hidden;
+  }
+
+  .sponsor-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .sponsor-icon {
+    flex: 1;
+    text-align: center;
+  }
+
+  .sponsor-icon img {
+    width: 195px;
+    height: 195px;
+  }
+
+  .sponsor-content {
+    flex: 2;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .sponsor-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .sponsor-button {
+    background-color: var(--dourado-cibernetico);
+    color: var(--branco-puro);
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .sponsor-button:hover {
+    background-color: var(--laranja-flamejante);
+  }
+
+  .supporters-section {
+    background: linear-gradient(
+      to bottom,
+      var(--verde-fluorescente-escuro),
+      var(--azul-cibernetico)
+    );
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .supporters-section h2 {
+    text-align: center;
+    color: var(--dourado-reluzente);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+
+  .supporters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .supporter-card {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 0.8rem;
+    text-align: center;
+    box-shadow:
+      0 2px 5px rgba(0, 0, 0, 0.3),
+      0 0 8px rgba(0, 255, 200, 0.2);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 255, 200, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .supporter-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 0 12px rgba(0, 255, 200, 0.3);
+  }
+
+  .supporter-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin: 0 auto 0.5rem;
+    overflow: hidden;
+    border: 2px solid var(--dourado-reluzente);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  }
+
+  .supporter-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .supporter-card h3 {
+    color: var(--ciano-eletrico);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .supporter-role {
+    color: var(--magenta-neon);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .supporter-bio {
+    display: none;
+  }
+
+  .supporter-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .supporter-social a {
+    color: var(--ciano-eletrico);
+    font-size: 0.9rem;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .supporter-social a:hover {
+    color: var(--dourado-reluzente);
+    transform: scale(1.15);
+  }
+
+  @media (max-width: 768px) {
+    .project-content {
+      flex-direction: column;
+    }
+
+    .project-section h2 {
+      font-size: 2rem;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .worldbuilding-section h2 {
+      font-size: 2rem;
+    }
+
+    .badge-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .badge-circle {
+      width: 120px;
+      height: 120px;
+    }
+
+    .sponsor-container {
+      flex-direction: column;
+    }
+
+    .sponsor-icon {
+      margin-bottom: 2rem;
+    }
+
+    .sponsor-icon img {
+      width: 130px;
+      height: 130px;
+    }
+
+    .supporters-section h2 {
+      font-size: 2rem;
+    }
+
+    .supporters-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
+    }
+
+    .supporter-card {
+      padding: 0.7rem;
+    }
+
+    .supporter-avatar {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .supporters-section {
+      padding: 1.5rem 0.7rem;
+    }
+
+    .supporters-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+
+    .supporter-avatar {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.4rem;
+    }
+
+    .supporter-card h3 {
+      font-size: 0.8rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .supporter-role {
+      font-size: 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .supporter-social a {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Estilos para a seção de galeria */
+  .gallery-section {
+    background: linear-gradient(
+      135deg,
+      var(--verde-musgo-queimado) 0%,
+      var(--preto-profundo) 100%
+    );
+    padding: 4rem 1rem;
+    margin: 3rem 0;
+    border-radius: 15px;
+    color: var(--branco-puro);
+  }
+
+  .gallery-section h2 {
+    text-align: center;
+    color: var(--dourado-cibernetico);
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .gallery-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    margin: 2rem auto;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .gallery-main {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .gallery-slides {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+  }
+
+  .gallery-slide.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    flex-grow: 1;
+  }
+
+  .gallery-caption {
+    padding: 1.2rem;
+    background: linear-gradient(
+      to right,
+      var(--dourado-cibernetico),
+      var(--laranja-flamejante)
+    );
+    color: var(--branco-puro);
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .gallery-description {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 80%;
+    box-shadow: 0 0 20px rgba(244, 185, 66, 0.5);
+    border: 1px solid var(--dourado-cibernetico);
+    z-index: 10;
+    line-height: 1.6;
+  }
+
+  .gallery-description p {
+    margin-bottom: 1rem;
+    color: var(--branco-puro);
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  .gallery-slide.active:hover .gallery-description {
+    display: block;
+  }
+
+  .gallery-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+
+  .gallery-controls button {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    font-size: 1.5rem;
+    color: var(--branco-puro);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .gallery-controls button:hover {
+    background: var(--laranja-flamejante);
+    transform: scale(1.1);
+  }
+
+  .gallery-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .gallery-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .gallery-dot.active {
+    background-color: var(--dourado-cibernetico);
+    transform: scale(1.2);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .gallery-thumbs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .gallery-thumb {
+    width: 80px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .gallery-thumb.active {
+    border-color: var(--dourado-cibernetico);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .gallery-thumb:hover {
+    opacity: 1;
+  }
+
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-note {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+  }
+
+  .gallery-note a {
+    color: var(--dourado-cibernetico);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .gallery-note a:hover {
+    color: var(--laranja-flamejante);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .gallery-thumbs {
+      display: none;
+    }
+
+    .gallery-slides {
+      aspect-ratio: 16/9;
+    }
+  }
+
+  /* Estilos para a seção de vídeo */
+  .video-section {
+    background: linear-gradient(
+      135deg,
+      var(--preto-profundo) 0%,
+      var(--verde-musgo-queimado) 100%
+    );
+    padding: 4rem 1rem;
+    margin: 3rem 0;
+    border-radius: 15px;
+    color: var(--branco-puro);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-section h2 {
+    text-align: center;
+    color: var(--dourado-cibernetico);
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .video-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.5),
+      0 0 15px rgba(244, 185, 66, 0.3);
+    border: 2px solid var(--dourado-cibernetico);
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .video-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--branco-puro);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 0 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .video-section {
+      padding: 3rem 1rem;
+    }
+
+    .video-section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .video-description {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  /* Estilos para a seção de artefatos */
+  .artifacts-section {
+    padding: 4rem 1rem;
+    margin: 3rem 0;
+    background-color: var(--preto-profundo);
+    background-image: url("/images/caverna.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--branco-puro);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .artifacts-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    z-index: 1;
+  }
+
+  .artifacts-section .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .artifacts-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--dourado-cibernetico);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  .section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--branco-puro);
+    opacity: 0.9;
+  }
+
+  .artifacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .artifact-card {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(244, 185, 66, 0.3);
+    height: 100%;
+  }
+
+  .artifact-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.6),
+      0 0 20px rgba(244, 185, 66, 0.4);
+    border-color: rgba(244, 185, 66, 0.6);
+  }
+
+  .artifact-image {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    margin: 0 auto 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .artifact-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(244, 185, 66, 0.5);
+    filter: blur(5px);
+    z-index: 1;
+  }
+
+  .artifact-image img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    filter: drop-shadow(0 0 5px rgba(244, 185, 66, 0.5));
+    border-radius: 10px;
+  }
+
+  .artifact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    color: var(--laranja-flamejante);
+    text-align: center;
+  }
+
+  .artifact-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  .artifact-rarity {
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: 0.3rem 1rem;
+    margin-top: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .artifact-rarity.legendary {
+    background: linear-gradient(to right, #ff7e00, #ffb700);
+    color: #000;
+  }
+
+  .artifact-rarity.epic {
+    background: linear-gradient(to right, #a335ee, #c359ff);
+    color: #fff;
+  }
+
+  .artifact-rarity.rare {
+    background: linear-gradient(to right, #0070dd, #00a3ff);
+    color: #fff;
+  }
+
+  .artifact-rarity.uncommon {
+    background: linear-gradient(to right, #1eff00, #b3ff00);
+    color: #000;
+  }
+
+  .artifact-rarity.common {
+    background: linear-gradient(to right, #9d9d9d, #ffffff);
+    color: #000;
+  }
+
+  .artifact-cta {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .artifact-button {
+    background-color: var(--dourado-cibernetico);
+    color: var(--preto-profundo);
+    font-weight: bold;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+
+  .artifact-button:hover {
+    background-color: var(--laranja-flamejante);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .artifacts-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .artifact-card {
+      padding: 1.2rem;
+    }
+
+    .artifact-image {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .artifact-card h3 {
+      font-size: 1.1rem;
+    }
+
+    .artifact-card p {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .artifacts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Animação sequencial para os cards de post
+  const postCards = document.querySelectorAll(".post-card");
+
+  postCards.forEach((card, index) => {
+    const delay = 100 + index * 100;
+    (card as HTMLElement).style.animationDelay = `${delay}ms`;
+  });
+
+  // Controle da galeria de imagens
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".gallery-slide");
+    const dots = document.querySelectorAll(".gallery-dot");
+    const thumbs = document.querySelectorAll(".gallery-thumb");
+    const prevBtn = document.querySelector(
+      ".gallery-prev"
+    ) as HTMLButtonElement;
+    const nextBtn = document.querySelector(
+      ".gallery-next"
+    ) as HTMLButtonElement;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    // Função para mostrar um slide específico
+    function showSlide(index: number) {
+      // Garante que o índice esteja dentro dos limites
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+
+      // Atualiza o slide atual
+      currentSlide = index;
+
+      // Remove classes ativas de todos os elementos
+      slides.forEach((slide) => slide.classList.remove("active"));
+      dots.forEach((dot) => dot.classList.remove("active"));
+      thumbs.forEach((thumb) => thumb.classList.remove("active"));
+
+      // Adiciona classe ativa aos elementos do slide atual
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+      thumbs[currentSlide].classList.add("active");
+    }
+
+    // Evento para o botão anterior
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        showSlide(currentSlide - 1);
+      });
+    }
+
+    // Evento para o botão próximo
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        showSlide(currentSlide + 1);
+      });
+    }
+
+    // Eventos para os pontos indicadores
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+      });
+    });
+
+    // Eventos para as miniaturas
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
+        showSlide(index);
+      });
+    });
+
+    // Inicializa o primeiro slide
+    showSlide(0);
+
+    // Navegação automática opcional (descomente para ativar)
+    // setInterval(() => {
+    //   showSlide(currentSlide + 1);
+    // }, 5000);
+  });
+</script>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
