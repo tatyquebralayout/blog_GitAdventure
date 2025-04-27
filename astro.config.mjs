@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  base: '/',
+  site: 'https://tatyquebralayout.github.io',
+  base: '/blog_GitAdventure',
   outDir: './dist',
   build: {
     assets: '_assets'
