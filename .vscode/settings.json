@@ -1,36 +1,36 @@
 {
-    "spellright.documentTypes": [],
-    "spellright.enable": false,
-    "cSpell.enabled": false,
-    "cSpell.language": "en,pt-br",
-    "cSpell.enableFiletypes": [
-        "markdown",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "astro"
-    ],
-    "cSpell.ignoreWords": [
-        "astro",
-        "Astro",
-        "pubDate",
-        "heroImage",
-        "srcset", 
-        "webp",
-        "raycast",
-        "minimalist",
-        "hyperconnected"
-    ],
-    "editor.formatOnSave": true,
-    "problems.decorations.enabled": false,
-    "editor.quickSuggestions": {
-        "comments": false,
-        "strings": false,
-        "other": true
-    },
-    "editor.suggestOnTriggerCharacters": false,
-    "editor.wordBasedSuggestions": "off",
-    "markdownlint.enable": false,
-    "editor.inlineSuggest.enabled": false
-} 
+  "spellright.documentTypes": [],
+  "spellright.enable": false,
+  "cSpell.enabled": false,
+  "cSpell.language": "en,pt-br",
+  "cSpell.enableFiletypes": [
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
+  "cSpell.ignoreWords": [
+    "astro",
+    "Astro",
+    "pubDate",
+    "heroImage",
+    "srcset",
+    "webp",
+    "raycast",
+    "minimalist",
+    "hyperconnected"
+  ],
+  "editor.formatOnSave": true,
+  "problems.decorations.enabled": false,
+  "editor.quickSuggestions": {
+    "comments": false,
+    "strings": false,
+    "other": true
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.wordBasedSuggestions": "off",
+  "markdownlint.enable": false,
+  "editor.inlineSuggest.enabled": false
+}

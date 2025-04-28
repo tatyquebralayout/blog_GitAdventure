@@ -6,30 +6,33 @@ Este projeto é um blog pessoal construído com [Astro](https://astro.build), fo
 
 ## ✨ Funcionalidades
 
-*   Conteúdo em Markdown (`src/content/blog/`)
-*   Layouts responsivos
-*   Configurado para deploy no GitHub Pages
-*   Verificação ortográfica com CSpell (Português e Inglês)
+- Conteúdo em Markdown (`src/content/blog/`)
+- Layouts responsivos
+- Configurado para deploy no GitHub Pages
+- Verificação ortográfica com CSpell (Português e Inglês)
 
 ## 🛠️ Tecnologias Utilizadas
 
-*   [Astro](https://astro.build/)
-*   [TypeScript](https://www.typescriptlang.org/) (para checagem de tipos)
-*   CSS (Variáveis CSS para estilização)
+- [Astro](https://astro.build/)
+- [TypeScript](https://www.typescriptlang.org/) (para checagem de tipos)
+- CSS (Variáveis CSS para estilização)
 
 ## 🚀 Como Rodar Localmente
 
 1.  **Clone o repositório:**
+
     ```bash
     git clone https://github.com/tatyquebralayout/blog_GitAdventure.git
     cd blog_GitAdventure
     ```
 
 2.  **Instale as dependências:**
+
     ```bash
     npm install
     ```
-    *(Certifique-se de ter o Node.js v18 ou superior instalado)*
+
+    _(Certifique-se de ter o Node.js v18 ou superior instalado)_
 
 3.  **Inicie o servidor de desenvolvimento:**
     ```bash
@@ -39,10 +42,10 @@ Este projeto é um blog pessoal construído com [Astro](https://astro.build), fo
 
 ## ⚙️ Comandos Úteis
 
-*   `npm run dev`: Inicia o servidor de desenvolvimento com hot-reloading.
-*   `npm run build`: Gera a versão estática do site na pasta `./dist`.
-*   `npm run preview`: Inicia um servidor local para visualizar o build de produção.
-*   `npm run spell-check`: Verifica a ortografia nos arquivos Markdown usando CSpell.
+- `npm run dev`: Inicia o servidor de desenvolvimento com hot-reloading.
+- `npm run build`: Gera a versão estática do site na pasta `./dist`.
+- `npm run preview`: Inicia um servidor local para visualizar o build de produção.
+- `npm run spell-check`: Verifica a ortografia nos arquivos Markdown usando CSpell.
 
 ## 🤝 Contribuições
 

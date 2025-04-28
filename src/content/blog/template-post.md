@@ -1,16 +1,16 @@
 ---
-title: 'GitAdventure: Como Aprendi Git Quebrando Tudo em um RPG'
-description: 'A jornada insana de um dev sênior que transformou o inferno do versionamento em uma aventura épica através de um RPG técnico'
+title: "GitAdventure: Como Aprendi Git Quebrando Tudo em um RPG"
+description: "A jornada insana de um dev sênior que transformou o inferno do versionamento em uma aventura épica através de um RPG técnico"
 pubDate: 2025-04-27T00:00:00Z
-heroImage: '/blog_GitAdventure/images/blog/gitflow-1.png'
-heroAlt: 'Uma ilustração mostrando aventureiros digitais enfrentando um monstro de código em uma cidade tecnológica'
-author: 'Felipe CodeBreaker'
-authorImage: '/blog_GitAdventure/authors/placeholder-author.jpg'
-category: 'Games & Tech'
-readingTime: '8 min'
+heroImage: "/blog_GitAdventure/images/blog/gitflow-1.png"
+heroAlt: "Uma ilustração mostrando aventureiros digitais enfrentando um monstro de código em uma cidade tecnológica"
+author: "Felipe CodeBreaker"
+authorImage: "/blog_GitAdventure/authors/placeholder-author.jpg"
+category: "Games & Tech"
+readingTime: "8 min"
 featured: true
 draft: true
-tags: ['RPG', 'Git', 'Programação', 'Jogos', 'Desenvolvedores', 'Aprendizado']
+tags: ["RPG", "Git", "Programação", "Jogos", "Desenvolvedores", "Aprendizado"]
 ---
 
 <div class="titulo-principal">
@@ -68,7 +68,7 @@ Foi exatamente assim que nasceu o **GitAdventure** — da minha frustração em 
 
 <div class="separador"></div>
 
-# 💣 Capítulo 1: Quebrando Tudo Até Entender 
+# 💣 Capítulo 1: Quebrando Tudo Até Entender
 
 A primeira regra para aprender qualquer tecnologia: **quebre tudo até fazer funcionar**. Sim, é isso mesmo. Se você tá com medo de usar uma plataforma só porque tá em produção, não vai aprender porra nenhuma.
 
@@ -379,7 +379,7 @@ function falhaEmProducao(horario) {
 
 # 🎯 Conclusão: Como Quebrei Tudo e Aprendi no Processo
 
-> *"Em Hubópolis, o melhor depurador é um bom commit."* — Felipe CodeBreaker, depois do terceiro café da madrugada
+> _"Em Hubópolis, o melhor depurador é um bom commit."_ — Felipe CodeBreaker, depois do terceiro café da madrugada
 
 A criação do GitAdventure me ensinou uma lição fundamental: a melhor maneira de aprender qualquer tecnologia é quebrando-a, estudando suas entranhas e reconstruindo-a do seu jeito.
 
@@ -402,7 +402,7 @@ E você? Vai continuar usando `git commit -m "asdasd"` ou está pronto para tran
 
 ---
 
-*Este artigo foi escrito por um dev que já fez `git reset --hard` sem backup, usou `git push -f` na master, e chorou quando teve que fazer um rebase interativo de 47 commits. Qualquer semelhança com desastres de Git na sua equipe não é mera coincidência — somos todos vítimas do mesmo sistema.*
+_Este artigo foi escrito por um dev que já fez `git reset --hard` sem backup, usou `git push -f` na master, e chorou quando teve que fazer um rebase interativo de 47 commits. Qualquer semelhança com desastres de Git na sua equipe não é mera coincidência — somos todos vítimas do mesmo sistema._
 
 <style>
 .insight-box {

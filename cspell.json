@@ -1,9 +1,7 @@
 {
   "version": "0.2",
   "language": "en,pt-BR",
-  "dictionaries": [
-    "pt-BR"
-  ],
+  "dictionaries": ["pt-BR"],
   "ignorePaths": [
     "node_modules/**",
     "dist/**",
@@ -47,4 +45,4 @@
     "srcset",
     "webp"
   ]
-} 
+}

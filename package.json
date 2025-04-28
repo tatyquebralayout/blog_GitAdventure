@@ -8,13 +8,16 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "spell-check": "cspell \"src/content/**/*.md\""
+    "spell-check": "cspell \"src/content/**/*.md\"",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
   },
   "dependencies": {
     "astro": "^5.2.5"
   },
   "devDependencies": {
     "@cspell/dict-pt-br": "^2.4.0",
-    "cspell": "^7.3.8"
+    "cspell": "^7.3.8",
+    "prettier": "^3.5.3"
   }
 }
