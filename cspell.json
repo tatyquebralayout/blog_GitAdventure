@@ -1,38 +1,50 @@
 {
   "version": "0.2",
-  "language": "en,pt-br",
+  "language": "en,pt-BR",
   "dictionaries": [
-    "en_US",
-    "pt_BR",
-    "softwareTerms",
-    "typescript",
-    "html",
-    "css",
-    "npm"
+    "pt-BR"
   ],
   "ignorePaths": [
     "node_modules/**",
-    ".git/**",
     "dist/**",
-    ".astro/**"
-  ],
-  "ignoreRegExpList": [
-    "\\(.*\\)",
-    "/^```[\\s\\S]*?```$/gm",
-    "/'.*?'/",
-    "/`.*?`/",
-    "URL\\(.*\\)",
-    "\\[.*\\]"
+    ".astro/**",
+    "package-lock.json",
+    ".git/**"
   ],
   "words": [
-    "astro",
     "Astro",
+    "GitAdventure",
+    "CodeBreaker",
+    "Hubópolis",
+    "Expresso",
+    "tatyquebralayout",
+    "cspell",
+    "asdasd",
+    "devs",
+    "DevOps",
+    "hotfixes",
+    "Javascript",
+    "lifecycles",
+    "Markdown",
+    "roadmap",
+    "schema",
+    "Tailwind",
+    "teamwork",
+    "techlead",
+    "TypeScript",
+    "Wireshark",
+    "workflow",
+    "workflows",
+    "worldbuilding",
+    "bootcamps",
+    "frontmatter",
+    "gamificados",
+    "gamificação",
+    "webdev",
+    "umataldetatiana",
     "pubDate",
     "heroImage",
     "srcset",
-    "webp",
-    "raycast",
-    "minimalist",
-    "hyperconnected"
+    "webp"
   ]
 } 

@@ -359,7 +359,8 @@ const posts = (await getCollection("blog"))
       <p class="gallery-note">
         Todas as imagens estão disponíveis para download no <a
           href="https://github.com/gitadventure/media-assets"
-          target="_blank">repositório oficial</a
+          target="_blank"
+          rel="noopener noreferrer">repositório oficial</a
         > do projeto.
       </p>
     </div>
@@ -1492,73 +1493,80 @@ const posts = (await getCollection("blog"))
 
   // Controle da galeria de imagens
   document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll(".gallery-slide");
-    const dots = document.querySelectorAll(".gallery-dot");
-    const thumbs = document.querySelectorAll(".gallery-thumb");
-    const prevBtn = document.querySelector(
+    const gallerySlides = document.querySelectorAll(".gallery-slide");
+    const galleryDots = document.querySelectorAll(".gallery-dot");
+    const galleryThumbs = document.querySelectorAll(".gallery-thumb");
+    const galleryPrevBtn = document.querySelector(
       ".gallery-prev"
     ) as HTMLButtonElement;
-    const nextBtn = document.querySelector(
+    const galleryNextBtn = document.querySelector(
       ".gallery-next"
     ) as HTMLButtonElement;
 
-    let currentSlide = 0;
-    const totalSlides = slides.length;
+    if (gallerySlides.length === 0) return;
+
+    let currentGallerySlide = 0;
+    const totalGallerySlides = gallerySlides.length;
 
     // Função para mostrar um slide específico
-    function showSlide(index: number) {
+    function showGallerySlide(index: number) {
       // Garante que o índice esteja dentro dos limites
-      if (index < 0) index = totalSlides - 1;
-      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalGallerySlides - 1;
+      if (index >= totalGallerySlides) index = 0;
 
       // Atualiza o slide atual
-      currentSlide = index;
+      currentGallerySlide = index;
 
       // Remove classes ativas de todos os elementos
-      slides.forEach((slide) => slide.classList.remove("active"));
-      dots.forEach((dot) => dot.classList.remove("active"));
-      thumbs.forEach((thumb) => thumb.classList.remove("active"));
+      gallerySlides.forEach((slide) => slide.classList.remove("active"));
+      galleryDots.forEach((dot) => dot.classList.remove("active"));
+      galleryThumbs.forEach((thumb) => thumb.classList.remove("active"));
 
       // Adiciona classe ativa aos elementos do slide atual
-      slides[currentSlide].classList.add("active");
-      dots[currentSlide].classList.add("active");
-      thumbs[currentSlide].classList.add("active");
+      gallerySlides[currentGallerySlide].classList.add("active");
+      // Verifica se o ponto/thumb existe antes de adicionar a classe
+      if (galleryDots[currentGallerySlide]) {
+        galleryDots[currentGallerySlide].classList.add("active");
+      }
+      if (galleryThumbs[currentGallerySlide]) {
+        galleryThumbs[currentGallerySlide].classList.add("active");
+      }
     }
 
     // Evento para o botão anterior
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        showSlide(currentSlide - 1);
+    if (galleryPrevBtn) {
+      galleryPrevBtn.addEventListener("click", () => {
+        showGallerySlide(currentGallerySlide - 1);
       });
     }
 
     // Evento para o botão próximo
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        showSlide(currentSlide + 1);
+    if (galleryNextBtn) {
+      galleryNextBtn.addEventListener("click", () => {
+        showGallerySlide(currentGallerySlide + 1);
       });
     }
 
     // Eventos para os pontos indicadores
-    dots.forEach((dot, index) => {
+    galleryDots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
-        showSlide(index);
+        showGallerySlide(index);
       });
     });
 
     // Eventos para as miniaturas
-    thumbs.forEach((thumb, index) => {
+    galleryThumbs.forEach((thumb, index) => {
       thumb.addEventListener("click", () => {
-        showSlide(index);
+        showGallerySlide(index);
       });
     });
 
     // Inicializa o primeiro slide
-    showSlide(0);
+    showGallerySlide(0);
 
     // Navegação automática opcional (descomente para ativar)
     // setInterval(() => {
-    //   showSlide(currentSlide + 1);
+    //   showGallerySlide(currentGallerySlide + 1);
     // }, 5000);
   });
 </script>
