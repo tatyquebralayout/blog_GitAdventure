@@ -9,7 +9,7 @@ authorImage: '/blog_GitAdventure/authors/placeholder-author.jpg'
 category: 'Games & Tech'
 readingTime: '8 min'
 featured: true
-draft: false
+draft: true
 tags: ['RPG', 'Git', 'Programação', 'Jogos', 'Desenvolvedores', 'Aprendizado']
 ---
 
@@ -642,7 +642,7 @@ E você? Vai continuar usando `git commit -m "asdasd"` ou está pronto para tran
   height: 40px;
   margin: 4rem 0;
   position: relative;
-  background: url('https://i.postimg.cc/NLsC6SfV/separador-sessoes.png') no-repeat center center;
+  background: url('/blog_GitAdventure/images/components/separador-sessoes.png') no-repeat center center;
   background-size: contain;
   opacity: 0.7;
 }
@@ -651,7 +651,7 @@ E você? Vai continuar usando `git commit -m "asdasd"` ou está pronto para tran
   height: 50px;
   margin: 4rem 0 3rem;
   position: relative;
-  background: url('https://i.postimg.cc/NLsC6SfV/separador-sessoes.png') no-repeat center center;
+  background: url('/blog_GitAdventure/images/components/separador-sessoes.png') no-repeat center center;
   background-size: contain;
   opacity: 0.8;
 }
