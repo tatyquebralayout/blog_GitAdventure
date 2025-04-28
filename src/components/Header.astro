@@ -44,22 +44,22 @@ import { getCollection } from "astro:content";
 <script>
   // Funcionalidade de toggle para o menu mobile
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  const navLinksElement = document.querySelector(".nav-links");
 
-  if (mobileMenuToggle && navLinks) {
+  if (mobileMenuToggle && navLinksElement) {
     mobileMenuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
+      navLinksElement.classList.toggle("show");
     });
   }
 
   // Fechar menu ao clicar fora
   document.addEventListener("click", (event) => {
     const isClickInside =
-      navLinks?.contains(event.target as Node) ||
+      navLinksElement?.contains(event.target as Node) ||
       mobileMenuToggle?.contains(event.target as Node);
 
-    if (!isClickInside && navLinks?.classList.contains("show")) {
-      navLinks.classList.remove("show");
+    if (!isClickInside && navLinksElement?.classList.contains("show")) {
+      navLinksElement.classList.remove("show");
     }
   });
 
@@ -70,11 +70,15 @@ import { getCollection } from "astro:content";
   links.forEach((link) => {
     const href = link.getAttribute("href");
 
-    if (
-      href === currentPath ||
-      (href !== "/" && currentPath.startsWith(href as string))
-    ) {
-      link.classList.add("active");
+    if (href) {
+      if (
+        href === currentPath ||
+        (href !== "/blog_GitAdventure/" &&
+          href !== "/" &&
+          currentPath.startsWith(href))
+      ) {
+        link.classList.add("active");
+      }
     }
   });
 </script>
