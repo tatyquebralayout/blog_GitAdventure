@@ -7,11 +7,11 @@ on:
   # Permite que esse workflow seja executado manually pela aba Actions
   workflow_dispatch:
 
-# Define permissões para deploy no GitHub Pages
+# Define permissões para deploy no GitHub Pages (nível superior)
 permissions:
   contents: read
-  pages: write
-  id-token: write
+  pages: write # Necessário para deploy-pages
+  id-token: write # Necessário para deploy-pages
 
 # Permite apenas uma execução concorrente
 concurrency:
@@ -57,9 +57,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5 # Atualizado para v5
-        with:
-          # Habilita o Pages se a configuração não for detectada
-          enablement: true
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
@@ -80,9 +77,6 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write # Permissão para actions/deploy-pages escrever no deploy
-      id-token: write # Permissão para actions/deploy-pages autenticar
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
