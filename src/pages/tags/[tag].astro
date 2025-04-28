@@ -1,15 +1,17 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
-  const uniqueTags = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
+  const allPosts = await getCollection("blog");
+  const uniqueTags = [
+    ...new Set(allPosts.flatMap((post) => post.data.tags || [])),
+  ];
 
-  return uniqueTags.map(tag => {
-    const filteredPosts = allPosts.filter(post => 
-      post.data.tags?.includes(tag) && !post.data.draft
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.tags?.includes(tag) && !post.data.draft
     );
     return {
       params: { tag },
@@ -25,37 +27,52 @@ const { posts, tag } = Astro.props;
   <div class="tag-page container">
     <header class="page-header slide-up">
       <h1>Posts tagged with "{tag}"</h1>
-      <a href="/blog" class="back-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <a href="/blog_GitAdventure/blog" class="back-link">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
         Back to all posts
       </a>
     </header>
-    
+
     <div class="posts-grid">
-      {posts
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-        .map(post => (
-          <BlogPostCard
-            title={post.data.title}
-            description={post.data.description}
-            pubDate={post.data.pubDate}
-            url={`/blog/${post.slug}/`}
-            heroImage={post.data.heroImage}
-            tags={post.data.tags}
-          />
-        ))
+      {
+        posts
+          .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+          .map((post) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              url={`/blog/${post.slug}/`}
+              heroImage={post.data.heroImage}
+              tags={post.data.tags}
+            />
+          ))
       }
     </div>
-    
-    {posts.length === 0 && (
-      <div class="no-posts">
-        <p>No posts found with this tag. Check back soon!</p>
-        <a href="/blog" class="btn">View all posts</a>
-      </div>
-    )}
+
+    {
+      posts.length === 0 && (
+        <div class="no-posts">
+          <p>No posts found with this tag. Check back soon!</p>
+          <a href="/blog_GitAdventure/blog" class="btn">
+            View all posts
+          </a>
+        </div>
+      )
+    }
   </div>
 </Layout>
 
@@ -63,16 +80,16 @@ const { posts, tag } = Astro.props;
   .tag-page {
     padding: var(--size-8) 0;
   }
-  
+
   .page-header {
     margin-bottom: var(--size-10);
   }
-  
+
   .page-header h1 {
     font-size: var(--size-8);
     margin-bottom: var(--size-4);
   }
-  
+
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -81,32 +98,32 @@ const { posts, tag } = Astro.props;
     transition: color var(--transition-fast);
     font-size: var(--size-4);
   }
-  
+
   .back-link:hover {
     color: var(--color-primary);
   }
-  
+
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--size-6);
   }
-  
+
   .no-posts {
     text-align: center;
     padding: var(--size-10);
     color: var(--color-text-light);
   }
-  
+
   .no-posts p {
     margin-bottom: var(--size-6);
   }
-  
+
   @media (max-width: 768px) {
     .page-header h1 {
       font-size: var(--size-6);
     }
-    
+
     .posts-grid {
       grid-template-columns: 1fr;
     }

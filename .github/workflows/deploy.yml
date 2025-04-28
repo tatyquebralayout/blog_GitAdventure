@@ -80,9 +80,9 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write # Permissão para actions/deploy-pages escrever no deploy
+      id-token: write # Permissão para actions/deploy-pages autenticar
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

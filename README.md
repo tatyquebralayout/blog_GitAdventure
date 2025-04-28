@@ -1,6 +1,12 @@
-# Blog de Aventuras com Git e Astro
+# Blog Astro com Foco em Performance e SEO
 
-Este é um blog criado com [Astro](https://astro.build), um moderno framework para construção de sites estáticos rápidos e focados em conteúdo.
+Este é um template de blog Astro v3+ projetado para performance e SEO, usando:
+*   **TypeScript** para segurança de tipos.
+*   **Tailwind CSS** para estilização rápida.
+*   **Schema de SEO** da documentação do Astro para melhor visibilidade.
+
+| Data       | Título                                                         | Descrição                                                                                                                            | Tags                                      |
+| :--------- | :------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
 
 ## 📚 Posts Publicados
 
