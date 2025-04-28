@@ -57,6 +57,9 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5 # Atualizado para v5
+        with:
+          # Habilita o Pages se a configuração não for detectada
+          enablement: true
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
