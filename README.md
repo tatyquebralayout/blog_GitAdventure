@@ -1,109 +1,53 @@
-# Blog Astro com Foco em Performance e SEO
+# Blog GitAdventure 🚀
 
-Este é um template de blog Astro v3+ projetado para performance e SEO, usando:
-*   **TypeScript** para segurança de tipos.
-*   **Tailwind CSS** para estilização rápida.
-*   **Schema de SEO** da documentação do Astro para melhor visibilidade.
+Bem-vindo ao repositório do Blog GitAdventure!
 
-| Data       | Título                                                         | Descrição                                                                                                                            | Tags                                      |
-| :--------- | :------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- |
+Este projeto é um blog pessoal construído com [Astro](https://astro.build), focado em compartilhar conhecimentos e aventuras sobre Git, desenvolvimento de software, e tópicos relacionados, com um toque de gamificação e storytelling.
 
-## 📚 Posts Publicados
+## ✨ Funcionalidades
 
-| Data | Título | Descrição | Tags |
-|------|--------|-----------|------|
-| 15/05/2023 | [Getting Started with Astro: Building Static Sites with Speed](/src/content/blog/first-post.md) | Aprenda como o Astro ajuda desenvolvedores a construir websites ultra-rápidos com uma experiência moderna de desenvolvimento. | `astro`, `web development`, `tutorial` |
-| 07/06/2023 | [Optimizing Images for the Web: Best Practices for Developers](/src/content/blog/second-post.md) | Aprenda como otimizar imagens para tempos de carregamento mais rápidos, melhor experiência do usuário e melhores rankings de SEO. | `web development`, `performance`, `images` |
-| 22/07/2023 | [Building a Minimalist Digital Workspace](/src/content/blog/third-post.md) | Como criar um ambiente digital livre de distrações que promove foco e produtividade. | `productivity`, `technology`, `minimalism` |
+*   Conteúdo em Markdown (`src/content/blog/`)
+*   Layouts responsivos
+*   Configurado para deploy no GitHub Pages
+*   Verificação ortográfica com CSpell (Português e Inglês)
 
-## 🔧 Estrutura do Projeto
+## 🛠️ Tecnologias Utilizadas
 
-```
-blog_gitadventure/
-├── .astro/          # Arquivos gerados pelo Astro
-├── public/          # Arquivos estáticos (não processados)
-├── src/             # Código fonte do projeto
-│   ├── assets/      # Imagens e outros arquivos
-│   ├── components/  # Componentes reutilizáveis
-│   ├── content/     # Conteúdo do blog (Markdown)
-│   │   └── blog/    # Posts do blog
-│   ├── layouts/     # Layouts para as páginas
-│   └── pages/       # Páginas do site (rotas)
-├── astro.config.mjs # Configuração do Astro
-└── package.json     # Dependências e scripts
-```
+*   [Astro](https://astro.build/)
+*   [TypeScript](https://www.typescriptlang.org/) (para checagem de tipos)
+*   CSS (Variáveis CSS para estilização)
 
-## 📝 Como Criar um Novo Post
+## 🚀 Como Rodar Localmente
 
-1. Crie um novo arquivo `.md` na pasta `src/content/blog/`
-2. Adicione o frontmatter (YAML) ao início do arquivo:
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/tatyquebralayout/blog_GitAdventure.git
+    cd blog_GitAdventure
+    ```
 
-```md
----
-title: 'Título do Post'
-description: 'Breve descrição sobre o que o post trata'
-pubDate: 2023-MM-DDT00:00:00Z  # Data no formato ISO
-heroImage: 'URL da imagem de capa'
-tags: ['tag1', 'tag2', 'tag3']
----
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+    *(Certifique-se de ter o Node.js v18 ou superior instalado)*
 
-Conteúdo do post em Markdown...
-```
+3.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
+    ```
+    O site estará disponível em `http://localhost:4321/blog_GitAdventure/` (ou outra porta se a 4321 estiver ocupada).
 
-3. Escreva o conteúdo do post usando Markdown
-4. Adicione uma linha vazia ao final do arquivo para evitar erros de linting
+## ⚙️ Comandos Úteis
 
-## 🎨 Padrões de Formatação
+*   `npm run dev`: Inicia o servidor de desenvolvimento com hot-reloading.
+*   `npm run build`: Gera a versão estática do site na pasta `./dist`.
+*   `npm run preview`: Inicia um servidor local para visualizar o build de produção.
+*   `npm run spell-check`: Verifica a ortografia nos arquivos Markdown usando CSpell.
 
-### Títulos
+## 🤝 Contribuições
 
-- Título principal é definido no frontmatter, não use `# Título` no corpo do texto
-- Use `##` para seções principais e `###` para subseções
+Contribuições são bem-vindas! Sinta-se à vontade para abrir Issues ou Pull Requests.
 
-### Código
+## 📄 Licença
 
-Para blocos de código, use três crases e especifique a linguagem:
-
-```md
-\```html
-<div class="exemplo">
-  <p>Seu código aqui</p>
-</div>
-\```
-```
-
-### Imagens
-
-```md
-![Texto alternativo](caminho/para/imagem.jpg)
-```
-
-### Listas
-
-- Use `-` para listas não ordenadas
-- Use `1.`, `2.`, etc. para listas ordenadas
-
-## 🚀 Comandos Úteis
-
-```bash
-# Iniciar servidor de desenvolvimento
-npm run dev
-
-# Verificar erros de ortografia
-npm run spell-check
-
-# Construir o site para produção
-npm run build
-
-# Visualizar build de produção localmente
-npm run preview
-```
-
-## 📋 Checklist de Publicação
-
-- [ ] Verificar ortografia e gramática
-- [ ] Garantir que imagens estão otimizadas
-- [ ] Confirmar que todos os links funcionam corretamente
-- [ ] Verificar formatação em dispositivos móveis
-- [ ] Adicionar tags relevantes
-- [ ] Incluir linha vazia no final do arquivo
+Este projeto é distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
