@@ -2,10 +2,10 @@
 title: 'GitAdventure: Como Aprendi Git Quebrando Tudo em um RPG'
 description: 'A jornada insana de um dev sênior que transformou o inferno do versionamento em uma aventura épica através de um RPG técnico'
 pubDate: 2025-04-27T00:00:00Z
-heroImage: '/images/blog/gitflow-1.png'
+heroImage: '/blog_GitAdventure/images/blog/gitflow-1.png'
 heroAlt: 'Uma ilustração mostrando aventureiros digitais enfrentando um monstro de código em uma cidade tecnológica'
 author: 'Felipe CodeBreaker'
-authorImage: '/authors/placeholder-author.jpg'
+authorImage: '/blog_GitAdventure/authors/placeholder-author.jpg'
 category: 'Games & Tech'
 readingTime: '8 min'
 featured: true
@@ -29,7 +29,7 @@ tags: ['RPG', 'Git', 'Programação', 'Jogos', 'Desenvolvedores', 'Aprendizado']
 </div>
 
 <div class="author-info">
-  <img src="/authors/tati.png" alt="Tatiana Barros" class="author-avatar">
+  <img src="/blog_GitAdventure/authors/tati.png" alt="Tatiana Barros" class="author-avatar">
   <div class="author-details">
     <span class="author-name">Tatiana Barros</span>
     <div class="author-social">
@@ -43,7 +43,7 @@ tags: ['RPG', 'Git', 'Programação', 'Jogos', 'Desenvolvedores', 'Aprendizado']
   </div>
 </div>
 
-![Banner mostrando fluxo de trabalho do Git](/images/blog/Git.png)
+![Banner mostrando fluxo de trabalho do Git](/blog_GitAdventure/images/blog/Git.png)
 
 <div class="quote-block">
   <blockquote>
@@ -72,7 +72,7 @@ Foi exatamente assim que nasceu o **GitAdventure** — da minha frustração em 
 
 A primeira regra para aprender qualquer tecnologia: **quebre tudo até fazer funcionar**. Sim, é isso mesmo. Se você tá com medo de usar uma plataforma só porque tá em produção, não vai aprender porra nenhuma.
 
-![Uma ilustração mostrando código quebrado](/images/blog/git_features.png)
+![Uma ilustração mostrando código quebrado](/blog_GitAdventure/images/blog/git_features.png)
 
 Quando comecei a desenvolver o GitAdventure, a primeira coisa que fiz foi criar um projeto teste e clicar em absolutamente tudo para ver o que quebrava. O jogo nasceu dessa mentalidade destrutiva (mas construtiva).
 
@@ -232,7 +232,7 @@ Quando você realmente mergulha no código-fonte de uma ferramenta como Git, com
 
 Meu método favorito para entender qualquer aplicação web? A aba Network do navegador. Ela não mente. Ponto. Final.
 
-![Espionando requisições](/images/blog/rpg.jpg)
+![Espionando requisições](/blog_GitAdventure/images/blog/rpg.jpg)
 
 Desde 2014 eu venho inspecionando elementos e requisições. Meu primeiro projeto "real" no GitHub foi basicamente inspecionar todas as requisições de um jogo de navegador chamado "TribalWars" e construir uma app CLI/bot para jogar pelo terminal, com o objetivo final de não jogar (criando um bot auto-jogável).
 
@@ -696,7 +696,7 @@ blockquote::before {
   left: 1rem;
   width: 1.8rem;
   height: 1.8rem;
-  background: url('/images/components/quote.png') no-repeat center center;
+  background: url('/blog_GitAdventure/images/components/quote.png') no-repeat center center;
   background-size: contain;
   opacity: 0.8;
 }
