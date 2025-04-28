@@ -290,7 +290,7 @@ A gamificação não é apenas sobre pontos e badges. No GitAdventure, cada mec�
 Em pouco mais de oito meses desde o lançamento, o GitAdventure já acumulou uma comunidade ativa que compartilha campanhas personalizadas, expansões não-oficiais e ferramentas de suporte.
 
 <div class="testimonial">
-  <img src="/images/blog/hero-gitadventure.jpg" alt="Foto de Marcos S." class="testimonial-avatar">
+  <img src="/blog_GitAdventure/images/blog/hero-gitadventure.jpg" alt="Foto de Marcos S." class="testimonial-avatar">
   <blockquote>
     "Meu time era um desastre com controle de versão. Depois de três meses jogando GitAdventure nas sextas-feiras, nossa eficiência aumentou 40% e não temos mais commits com mensagens tipo 'fix do fix do fix'. Também paramos de comitar senhas em produção, o que já é um avanço considerável."
     <cite>— Marcos S., Tech Lead que já chorou durante um rebase complexo</cite>
@@ -315,22 +315,22 @@ Grupos de jogadores estão surgindo em empresas como forma de team building, e a
   
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="/images/blog/hero-gitadventure.jpg" alt="Laboratório de desenvolvimento em Hubópolis" class="gallery-img">
+      <img src="/blog_GitAdventure/images/blog/hero-gitadventure.jpg" alt="Laboratório de desenvolvimento em Hubópolis" class="gallery-img">
       <div class="gallery-caption">Laboratório de desenvolvimento em Hubópolis</div>
     </div>
     
     <div class="gallery-item">
-      <img src="/images/blog/rpg.jpg" alt="Aventureiros enfrentando um conflito de merge" class="gallery-img">
+      <img src="/blog_GitAdventure/images/blog/rpg.jpg" alt="Aventureiros enfrentando um conflito de merge" class="gallery-img">
       <div class="gallery-caption">Aventureiros enfrentando um conflito de merge</div>
     </div>
     
     <div class="gallery-item">
-      <img src="/images/blog/git_features.png" alt="Mapa das habilidades Git no jogo" class="gallery-img">
+      <img src="/blog_GitAdventure/images/blog/git_features.png" alt="Mapa das habilidades Git no jogo" class="gallery-img">
       <div class="gallery-caption">Mapa das habilidades Git no jogo</div>
     </div>
     
     <div class="gallery-item">
-      <img src="/images/blog/Git.png" alt="Os guardiões da cidade de Hubópolis" class="gallery-img">
+      <img src="/blog_GitAdventure/images/blog/Git.png" alt="Os guardiões da cidade de Hubópolis" class="gallery-img">
       <div class="gallery-caption">Os guardiões da cidade de Hubópolis</div>
     </div>
   </div>
@@ -346,7 +346,7 @@ O jogo base já é completo, mas não parei por aí. A primeira expansão oficia
 
 <div class="expansion-preview">
   <div class="expansion-image">
-    <img src="/images/blog/gitflow-1.png" alt="DevOps Dimensions Expansion">
+    <img src="/blog_GitAdventure/images/blog/gitflow-1.png" alt="DevOps Dimensions Expansion">
   </div>
   <div class="expansion-details">
     <h3>🔮 DevOps Dimensions</h3>

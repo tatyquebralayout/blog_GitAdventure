@@ -7,6 +7,9 @@ export default defineConfig({
   base: '/blog_GitAdventure',
   outDir: './dist',
   build: {
+    
+    
+    
     assets: '_assets'
   },
   integrations: []

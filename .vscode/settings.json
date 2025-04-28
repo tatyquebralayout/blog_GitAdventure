@@ -30,7 +30,7 @@
         "other": true
     },
     "editor.suggestOnTriggerCharacters": false,
-    "editor.wordBasedSuggestions": false,
+    "editor.wordBasedSuggestions": "off",
     "markdownlint.enable": false,
     "editor.inlineSuggest.enabled": false
 } 
