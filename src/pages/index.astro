@@ -15,50 +15,49 @@ const posts = (await getCollection("blog"))
 <Layout title="Blog Git Aventuras - Home">
   <Hero />
 
-  <section class="project-section">
-    <div class="bg-overlay"></div>
-    <div class="container">
+  <section class="project-section scroll-effect">
+    <div class="container project-container-padded">
       <h2>O Projeto</h2>
-      <div class="project-content">
-        <div class="project-text">
-          <p>
-            <strong>Git Aventuras</strong> é um projeto dedicado a transformar o
-            aprendizado de controle de versão em uma experiência divertida e envolvente.
-          </p>
-          <p>
-            Através de tutoriais interativos, missões práticas e exemplos do
-            mundo real, tornamos o Git acessível tanto para iniciantes quanto
-            para desenvolvedores experientes.
-          </p>
-          <GameButtons
-            buttons={[
-              { text: "Explorar Missões", url: "/quests", color: "gold" },
-            ]}
-            size="small"
-          />
-        </div>
-        <div class="project-features">
-          <div class="feature">
-            <div class="feature-icon">📚</div>
-            <h3>Tutoriais Claros</h3>
-            <p>Explicações passo a passo dos conceitos fundamentais do Git</p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">🎮</div>
-            <h3>Missões Práticas</h3>
-            <p>
-              Desafios interativos para aplicar os conhecimentos em cenários
-              reais
-            </p>
-          </div>
-          <div class="feature">
-            <div class="feature-icon">🌐</div>
-            <h3>Comunidade</h3>
-            <p>
-              Compartilhe experiências e aprenda com outros aventureiros do Git
-            </p>
-          </div>
-        </div>
+      <div class="project-content magazine-layout">
+        <p>
+          <span class="drop-cap">O</span> projeto GitAdventure transforma o aprendizado
+          em uma jornada narrativa — mas vai além dos comandos e da técnica. Aqui,
+          cada conceito se conecta a algo maior: à história viva da tecnologia, às
+          escolhas humanas que moldaram linguagens, ferramentas e sistemas.
+        </p>
+        <p>
+          Aprender Git e GitHub não é apenas decorar comandos; é compreender o
+          nascimento da colaboração distribuída, os desafios que deram origem ao
+          versionamento moderno e as evoluções que redefiniram a maneira como
+          criamos conhecimento em rede. É construir um mapa mental onde commits,
+          branches e merges deixam de ser mecânicas isoladas — e passam a ser
+          vestígios vivos de uma história de inovação contínua.
+        </p>
+
+        <p>
+          Quando commit se torna um ritual de preservação na linha do tempo, e
+          branches se revelam como trilhas abertas em florestas de
+          possibilidades, aprendemos não apenas com a lógica, mas também com
+          nossa capacidade ancestral de contar, viver e atravessar histórias.
+          Este território — situado entre o técnico, o humano e o imaginativo —
+          reconhece que evoluímos melhor quando compreendemos o "porquê" das
+          ferramentas que usamos, não apenas o "como".
+        </p>
+
+        <aside class="pull-quote">
+          ...aprendemos não apenas com a lógica, mas também com nossa capacidade
+          ancestral de contar, viver e atravessar histórias.
+        </aside>
+
+        <p>
+          GitAdventure é um serious game: um RPG que já habita o espaço digital
+          — e que, em breve, terá também seu corpo físico, expandindo a
+          experiência para além das telas, em ambientes vivos de aprendizagem e
+          exploração. É um convite para repensar a tecnológia como uma travessia
+          consciente: uma jornada que não abandona nossa humanidade à porta, mas
+          a transforma na chave para entender, habitar e construir o mundo
+          digital que herdamos — e que ainda estamos moldando.
+        </p>
       </div>
     </div>
   </section>
@@ -440,28 +439,23 @@ const posts = (await getCollection("blog"))
 </Layout>
 
 <style>
-  .project-section {
-    padding: 4rem 1rem;
-    background-color: var(--preto-profundo);
-    background-image: url("/blog_GitAdventure/images/blog/bakgrand1.png");
+  .project-section.scroll-effect {
+    padding: 2rem 1rem;
+    background-image: url("/blog_GitAdventure/images/sessao_projeto_BG.png");
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-    color: var(--branco-puro);
-    border-radius: 0 0 15px 15px;
+    color: #4a3f35;
+    border-radius: 15px;
     position: relative;
     margin-bottom: 3rem;
     overflow: hidden;
   }
 
-  .bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(15, 15, 15, 0.5);
-    z-index: 1;
+  .project-container-padded {
+    padding: 5rem 6rem;
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
   .project-section::before {
@@ -475,81 +469,76 @@ const posts = (await getCollection("blog"))
     z-index: 2;
   }
 
-  .project-section h2 {
+  .project-section.scroll-effect h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    text-align: center;
-    color: var(--dourado-cibernetico);
-    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    text-align: left;
+    color: #6b4f38;
+    font-family: "Georgia", serif;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
   }
 
-  .project-content {
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
+  .project-content.magazine-layout {
+    padding: 2rem;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    font-family: "Georgia", serif;
+    column-count: 2;
+    column-gap: 2.5rem;
+    column-rule: 1px dashed #a08c6a;
+    text-align: justify;
+    hyphens: auto;
+    font-size: 1.05rem;
+    line-height: 1.7;
   }
 
-  .project-text {
-    flex: 1;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  .project-text p {
+  .magazine-layout p {
     margin-bottom: 1.5rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    text-indent: 1.5em;
+    color: #3a2f25;
   }
 
-  .project-text strong {
-    color: var(--dourado-cibernetico);
-    font-weight: 700;
+  .magazine-layout p:first-of-type {
+    text-indent: 0;
+    margin-top: 0;
   }
 
-  .project-features {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+  .drop-cap {
+    float: left;
+    font-size: 4.5em;
+    line-height: 0.8;
+    margin-right: 0.1em;
+    margin-bottom: -0.1em;
+    font-weight: bold;
+    color: #8b4513;
+    font-family: "Georgia", serif;
   }
 
-  .feature {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 8px;
-    padding: 1.5rem;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-    border: 1px solid rgba(244, 185, 66, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  .pull-quote {
+    width: 95%;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    border-top: 2px solid #8b4513;
+    border-bottom: 2px solid #8b4513;
+    font-size: 1.3em;
+    font-style: italic;
+    line-height: 1.5;
+    color: #7a3d0f;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Georgia", serif;
   }
 
-  .feature:hover {
-    transform: translateY(-5px);
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow:
-      0 8px 20px rgba(0, 0, 0, 0.4),
-      0 0 15px rgba(244, 185, 66, 0.2);
-    border-color: rgba(244, 185, 66, 0.3);
-  }
-
-  .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .feature h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--laranja-flamejante);
-  }
-
-  .feature p {
-    font-size: 0.95rem;
-    opacity: 0.9;
+  .magazine-layout code {
+    background-color: rgba(139, 69, 19, 0.15);
+    color: #8b4513;
+    padding: 0.1em 0.3em;
+    border-radius: 4px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95em;
+    border: 1px solid rgba(139, 69, 19, 0.3);
   }
 
   .worldbuilding-section {
@@ -865,60 +854,61 @@ const posts = (await getCollection("blog"))
     transform: scale(1.15);
   }
 
-  @media (max-width: 768px) {
-    .project-content {
-      flex-direction: column;
+  @media (max-width: 1024px) {
+    .project-container-padded {
+      padding: 4rem 4rem;
     }
+    .magazine-layout {
+      column-count: 2;
+    }
+  }
 
-    .project-section h2 {
+  @media (max-width: 768px) {
+    .project-section.scroll-effect {
+      /* min-height: auto; Removido */
+      /* background-size: cover; Já é cover por padrão agora */
+    }
+    .project-container-padded {
+      padding: 3rem 1.5rem;
+    }
+    .project-section.scroll-effect h2 {
       font-size: 2rem;
     }
-
     .posts-grid {
       grid-template-columns: 1fr;
     }
-
     .worldbuilding-section h2 {
       font-size: 2rem;
     }
-
     .badge-row {
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
     }
-
     .badge-circle {
       width: 120px;
       height: 120px;
     }
-
     .sponsor-container {
       flex-direction: column;
     }
-
     .sponsor-icon {
       margin-bottom: 2rem;
     }
-
     .sponsor-icon img {
       width: 130px;
       height: 130px;
     }
-
     .supporters-section h2 {
       font-size: 2rem;
     }
-
     .supporters-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 0.8rem;
     }
-
     .supporter-card {
       padding: 0.7rem;
     }
-
     .supporter-avatar {
       width: 45px;
       height: 45px;
@@ -929,28 +919,23 @@ const posts = (await getCollection("blog"))
     .supporters-section {
       padding: 1.5rem 0.7rem;
     }
-
     .supporters-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 0.6rem;
     }
-
     .supporter-avatar {
       width: 40px;
       height: 40px;
       margin-bottom: 0.4rem;
     }
-
     .supporter-card h3 {
       font-size: 0.8rem;
       margin-bottom: 0.1rem;
     }
-
     .supporter-role {
       font-size: 0.65rem;
       margin-bottom: 0.4rem;
     }
-
     .supporter-social a {
       font-size: 0.8rem;
     }
@@ -1181,7 +1166,6 @@ const posts = (await getCollection("blog"))
     .gallery-thumbs {
       display: none;
     }
-
     .gallery-slides {
       aspect-ratio: 16/9;
     }
@@ -1251,12 +1235,10 @@ const posts = (await getCollection("blog"))
     .video-section {
       padding: 3rem 1rem;
     }
-
     .video-section h2 {
       font-size: 2rem;
       margin-bottom: 2rem;
     }
-
     .video-description {
       font-size: 1rem;
       margin-top: 1.5rem;
@@ -1456,21 +1438,17 @@ const posts = (await getCollection("blog"))
       grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
     }
-
     .artifact-card {
       padding: 1.2rem;
     }
-
     .artifact-image {
       width: 80px;
       height: 80px;
       margin-bottom: 1rem;
     }
-
     .artifact-card h3 {
       font-size: 1.1rem;
     }
-
     .artifact-card p {
       font-size: 0.85rem;
     }

@@ -2,20 +2,21 @@
   /* Paleta de Cores Principal */
   --laranja-flamejante: #ff6600;
   --vermelho-vulcanico: #c62d00;
-  --preto-profundo: #0f0f0f;
+  --preto-profundo: #000000;
   --cinza-aco-fosco: #444444;
   --verde-musgo-queimado: #5a6b3f;
   --dourado-cibernetico: #f4b942;
   --laranja-incandescente-claro: #ffae42;
   --branco-puro: #ffffff;
+  --cinza-claro-suave: #cccccc;
 
   /* Cores para uso funcional */
-  --cor-fundo: var(--branco-puro);
-  --cor-texto: var(--preto-profundo);
+  --cor-fundo: var(--preto-profundo);
+  --cor-texto: var(--branco-puro);
   --cor-cabecalho: var(--verde-musgo-queimado);
   --cor-destaque: var(--laranja-flamejante);
-  --cor-link: var(--vermelho-vulcanico);
-  --cor-link-hover: var(--laranja-incandescente-claro);
+  --cor-link: var(--laranja-incandescente-claro);
+  --cor-link-hover: var(--dourado-cibernetico);
   --cor-borda: var(--cinza-aco-fosco);
   --cor-botao: var(--dourado-cibernetico);
   --cor-rodape: var(--cinza-aco-fosco);
