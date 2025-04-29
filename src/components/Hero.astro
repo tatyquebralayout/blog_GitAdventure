@@ -11,7 +11,7 @@
     />
     <p class="hero-subtitle">
       Entre código e mito, existe uma fronteira viva onde cada commit esculpe
-      realidades; onde branches não são apenas caminhos técnicos, mas
+      realidades e onde branches não são apenas caminhos técnicos, mas
       territórios de possibilidades que respiram.
     </p>
   </div>
@@ -19,7 +19,10 @@
 
 <style>
   .hero {
-    background-color: var(--cor-fundo);
+    background-image: url("/blog_GitAdventure/images/imagem_hero.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--cor-texto);
     padding: 4rem 1rem;
     border-radius: 0 0 25px 25px;
@@ -46,15 +49,26 @@
   .hero::before {
     content: "";
     position: absolute;
-    top: -50px;
-    left: -50px;
-    width: 250px;
-    height: 250px;
-    background-color: var(--dourado-cibernetico);
-    opacity: 0.2;
-    border-radius: 50%;
-    filter: blur(70px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 250px;
+      height: 250px;
+      background-color: var(--dourado-cibernetico);
+      opacity: 0.2;
+      border-radius: 50%;
+      filter: blur(70px);
+      z-index: -1;
+    }
   }
 
   .hero-content {
@@ -84,13 +98,38 @@
   }
 
   .hero-subtitle {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
+    font-family: "Cinzel", serif;
+    font-size: 1.6rem;
+    max-width: 750px;
+    margin: 0 auto 2.5rem auto;
     line-height: 1.6;
-    color: var(--cinza-claro-suave);
-    font-style: italic;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    color: var(--branco-puro);
+    font-style: normal;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.05em;
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  .hero-subtitle::before,
+  .hero-subtitle::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background-color: var(--dourado-cibernetico);
+    opacity: 0.7;
+  }
+
+  .hero-subtitle::before {
+    top: 0;
+  }
+
+  .hero-subtitle::after {
+    bottom: 0;
   }
 
   @media (max-width: 768px) {
@@ -109,7 +148,13 @@
     }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-subtitle::before,
+    .hero-subtitle::after {
+      width: 80px;
     }
   }
 </style>

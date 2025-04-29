@@ -33,9 +33,15 @@ import { getCollection } from "astro:content";
 
       <ul class="nav-links">
         <li><a href="/blog_GitAdventure/">Home</a></li>
+        <li><a href="/blog_GitAdventure/#projeto">O Projeto</a></li>
+        <li><a href="/blog_GitAdventure/#worldbuilding">Worldbuilding</a></li>
+        <li><a href="/blog_GitAdventure/#artefatos">Artefatos</a></li>
+        <li><a href="/blog_GitAdventure/#galeria">Galeria</a></li>
+        <li><a href="/blog_GitAdventure/#video">Vídeo</a></li>
         <li><a href="/blog_GitAdventure/blog">Blog</a></li>
         <li><a href="/blog_GitAdventure/quests">Missões</a></li>
         <li><a href="/blog_GitAdventure/about">Sobre</a></li>
+        <li><a href="/blog_GitAdventure/#apoie">Apoie</a></li>
       </ul>
     </nav>
   </div>
@@ -63,6 +69,14 @@ import { getCollection } from "astro:content";
     }
   });
 
+  // Função para rolagem suave
+  function smoothScrollTo(targetId: string) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   document.addEventListener("astro:page-load", () => {
     // Adicionar classe ativa ao link da página atual
     const currentPath = window.location.pathname;
@@ -76,16 +90,61 @@ import { getCollection } from "astro:content";
       const href = link.getAttribute("href");
 
       if (href) {
-        // Lógica ligeiramente ajustada para mais clareza
-        const isHomePage = href === "/blog_GitAdventure/" || href === "/";
-        const isCurrentPage = href === currentPath;
-        const isParentPage = !isHomePage && currentPath.startsWith(href);
+        const cleanHref = href.split("#")[0]; // Remover hash para comparação
+        const isHomePageRoot =
+          cleanHref === "/blog_GitAdventure/" || cleanHref === "/";
+        const isCurrentPageBase = cleanHref === currentPath;
+        const isParentPage =
+          !isHomePageRoot && currentPath.startsWith(cleanHref);
 
-        if (isCurrentPage || isParentPage) {
+        // Marcar como ativo se for a página exata ou pai (excluindo links hash de outras páginas)
+        if (isCurrentPageBase || isParentPage) {
           link.classList.add("active");
+        }
+
+        // Lógica específica para marcar "Home" ou "O Projeto" ativos na homepage
+        if (currentPath === "/blog_GitAdventure/" || currentPath === "/") {
+          if (href === "/blog_GitAdventure/") {
+            link.classList.add("active");
+          }
+          // Se estiver na home e clicar em "O Projeto", manter "Home" ativo (ou nenhum, dependendo da preferência)
+          // Vamos manter apenas Home ativo na raiz por simplicidade
         }
       }
     });
+
+    // Adicionar listener para rolagem suave em links hash internos
+    document
+      .querySelectorAll('a[href^="/blog_GitAdventure/#"]')
+      .forEach((anchor) => {
+        // Garantir que é um elemento HTML antes de adicionar listener
+        if (anchor instanceof HTMLAnchorElement) {
+          anchor.addEventListener("click", (e: MouseEvent) => {
+            // Removido 'this', usando 'anchor' diretamente
+            const targetHref = anchor.getAttribute("href"); // Usando 'anchor' diretamente
+            if (!targetHref) return;
+
+            const targetPath = targetHref.split("#")[0];
+            const targetId = targetHref.split("#")[1];
+
+            // Só interceptar se o link for para a página atual
+            if (
+              (targetPath === window.location.pathname ||
+                (targetPath === "/blog_GitAdventure/" &&
+                  window.location.pathname === "/")) &&
+              targetId
+            ) {
+              e.preventDefault();
+              smoothScrollTo(targetId);
+              // Opcional: Fechar menu mobile se aberto
+              const navLinksElement = document.querySelector(".nav-links");
+              if (navLinksElement?.classList.contains("show")) {
+                navLinksElement.classList.remove("show");
+              }
+            }
+          });
+        }
+      });
   });
 </script>
 
