@@ -515,7 +515,21 @@ const posts = (await getCollection("blog"))
             >
           </div>
         </div>
-        <!-- Adicione mais cards conforme necessário -->
+
+        <!-- Card Carlos -->
+        <div class="supporter-card">
+          <div class="supporter-avatar">
+            <img
+              src="/blog_GitAdventure/images/apoiador_carlos.png"
+              alt="Avatar Carlos"
+            />
+          </div>
+          <h3>Carlos</h3>
+          <div class="supporter-role">Engenheiro do Coração do Código</div>
+          <div class="supporter-social">
+            <!-- Sem links por enquanto -->
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -850,9 +864,9 @@ const posts = (await getCollection("blog"))
 
   .supporters-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
-    max-width: 700px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -939,6 +953,10 @@ const posts = (await getCollection("blog"))
     }
     .magazine-layout {
       column-count: 2;
+    }
+    .supporters-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 95%;
     }
   }
 
