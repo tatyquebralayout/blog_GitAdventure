@@ -63,23 +63,29 @@ import { getCollection } from "astro:content";
     }
   });
 
-  // Adicionar classe ativa ao link da página atual
-  const currentPath = window.location.pathname;
-  const links = document.querySelectorAll(".nav-links a");
+  document.addEventListener("astro:page-load", () => {
+    // Adicionar classe ativa ao link da página atual
+    const currentPath = window.location.pathname;
+    const links = document.querySelectorAll(".nav-links a");
 
-  links.forEach((link) => {
-    const href = link.getAttribute("href");
+    // Primeiro, remover a classe ativa de todos os links para garantir limpeza
+    links.forEach((link) => link.classList.remove("active"));
 
-    if (href) {
-      if (
-        href === currentPath ||
-        (href !== "/blog_GitAdventure/" &&
-          href !== "/" &&
-          currentPath.startsWith(href))
-      ) {
-        link.classList.add("active");
+    // Depois, adicionar a classe ao link correto
+    links.forEach((link) => {
+      const href = link.getAttribute("href");
+
+      if (href) {
+        // Lógica ligeiramente ajustada para mais clareza
+        const isHomePage = href === "/blog_GitAdventure/" || href === "/";
+        const isCurrentPage = href === currentPath;
+        const isParentPage = !isHomePage && currentPath.startsWith(href);
+
+        if (isCurrentPage || isParentPage) {
+          link.classList.add("active");
+        }
       }
-    }
+    });
   });
 </script>
 
