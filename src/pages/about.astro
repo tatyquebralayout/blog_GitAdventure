@@ -32,6 +32,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="bio-section">
+        <h3>Quem Sou</h3>
         <p>
           Sou educadora, desenvolvedora de projetos open source e pesquisadora
           independente nas áreas de tecnologia e processos de aprendizagem.
@@ -42,6 +43,8 @@ import Layout from "../layouts/Layout.astro";
           entre inovação e entendimento, traduzindo complexidades técnicas em
           experiências acessíveis e transformadoras.
         </p>
+
+        <h3>Filosofia de Aprendizado</h3>
         <p>
           Como mulher neurodivergente (TEA/ADHD) em tecnologia, encaro o
           aprendizado como uma travessia contínua — onde curiosidade e
@@ -50,27 +53,33 @@ import Layout from "../layouts/Layout.astro";
           disputar futuros, construir redes de colaboração e transformar
           ambientes que ainda insistem em excluir vozes diversas.
         </p>
+
+        <h3>Projetos e Atuação</h3>
         <p>
           Minha trajetória é marcada pela criação de experiências educativas que
           aproximam pessoas da tecnologia através da prática, da colaboração e
-          da construção de sentido real. Entre meus projetos, destaco o
-          GitAdventure — um serious game open source que ensina Git,
-          versionamento e práticas colaborativas de maneira imersiva e
-          narrativa. Com o GitAdventure, proponho outra forma de aprender: mais
-          crítica, mais inclusiva, mais viva.
+          da construção de sentido real. Entre meus projetos, destaco o <strong
+            >GitAdventure</strong
+          > — um serious game open source que ensina Git, versionamento e práticas
+          colaborativas de maneira imersiva e narrativa. Com o GitAdventure, proponho
+          outra forma de aprender: mais crítica, mais inclusiva, mais viva.
         </p>
         <p>
-          Além disso, sou embaixadora do PrograMaria, desenvolvendo ações
-          voltadas ao fortalecimento de comunidades tecnológicas inclusivas, e
-          mantenho produção contínua de conteúdo técnico e metodologias para
-          autodidatas.
+          Além disso, sou embaixadora do <strong>PrograMaria</strong>,
+          desenvolvendo ações voltadas ao fortalecimento de comunidades
+          tecnológicas inclusivas, e mantenho produção contínua de conteúdo
+          técnico e metodologias para autodidatas.
         </p>
+
+        <h3>Explorações Atuais</h3>
         <p>
           Atualmente, exploro o universo JavaScript com ênfase em creative
           coding (Processing, p5.js, bibliotecas de animação) e inteligência
           artificial generativa, enquanto também me aventuro pelo lado Python da
           Força, em programação científica e análise de dados.
         </p>
+
+        <h3>Um Convite</h3>
         <p>
           Cada linha de código, cada projeto, cada aula é para mim uma
           oportunidade: de criar, de innovar e de compartilhar conhecimento de
@@ -153,12 +162,20 @@ import Layout from "../layouts/Layout.astro";
   .bio-section h3 {
     font-size: var(--size-5);
     margin-top: var(--size-8);
-    margin-bottom: var(--size-3);
-    color: var(--color-primary);
+    margin-bottom: var(--size-4);
+    color: var(--dourado-cibernetico);
+    border-bottom: 1px solid var(--cinza-aco-fosco);
+    padding-bottom: var(--size-2);
   }
 
   .bio-section p {
-    margin-bottom: var(--size-4);
+    margin-bottom: var(--size-5);
+    line-height: 1.8;
+  }
+
+  .bio-section strong {
+    color: var(--laranja-incandescente-claro);
+    font-weight: bold;
   }
 
   .expertise-list {
